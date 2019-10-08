@@ -28,9 +28,7 @@ namespace ConsoleUI
                 if (input == "1")
                 {
                     // Local variables
-                    //testing
-                    //test response
-                    //test 2
+                   
                     // Display description of the program
                     GameLibrary.StandardMessages.DisplayProgramDescription();
 
