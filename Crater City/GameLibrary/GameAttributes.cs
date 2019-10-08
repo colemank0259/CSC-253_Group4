@@ -21,10 +21,10 @@ namespace GameLibrary
 
         public static List<Weapon> weapons = new List<Weapon>()
         {
-            new Weapon(1,"Energy Blaster", 0),
-            new Weapon(2,"Power Gauntlets", 0),
-            new Weapon(3,"Sonic Cannon", 0),
-            new Weapon(4,"Pulse Blade", 0),
+            new Weapon("W1","Energy Blaster", "Melee", 0),
+            new Weapon("W2","Power Gauntlets", "Melee", 0),
+            new Weapon("W3","Sonic Cannon", "Projectile", 0),
+            new Weapon("W4","Pulse Blade", "Projectile", 0),
         };
 
         public static List<Potion> potions = new List<Potion>()
