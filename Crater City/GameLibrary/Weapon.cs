@@ -10,14 +10,16 @@ namespace GameLibrary
     {
         //List<string> weapons = new List<string>() {"Energy Blaster", "Power Gauntlets", "Sonic Cannon", "Pulse Blade"};
 
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Description { get; set; }
+        public string Type { get; set; }
         public int Damage { get; set; }
 
-        public Weapon(int id, string description, int damage)
+        public Weapon(string id, string description, string type, int damage)
         {
             ID = id;
             Description = description;
+            Type = type;
             Damage = damage;
         }
     }

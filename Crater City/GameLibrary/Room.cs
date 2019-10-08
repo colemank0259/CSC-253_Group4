@@ -10,7 +10,6 @@ namespace GameLibrary
     {
         public int ID { get; set; }
         public string Description { get; set; }
-
         public int North { get; set; }
 
         public int South { get; set; }
