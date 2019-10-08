@@ -28,7 +28,7 @@ namespace ConsoleUI
                 if (input == "1")
                 {
                     // Local variables
-
+                    //testing
 
                     // Display description of the program
                     GameLibrary.StandardMessages.DisplayProgramDescription();
@@ -46,7 +46,7 @@ namespace ConsoleUI
                     GameLibrary.StandardMessages.DisplayOpeningMenuError();
                 }
 
-            } while (exit == false);
+            } while (exit == false); 
         }
     }
 }
