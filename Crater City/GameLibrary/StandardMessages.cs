@@ -27,7 +27,7 @@ namespace GameLibrary
 
         public static void DisplayProgramDescription()
         {
-            Console.WriteLine("TThis program is a dungeon crawl game.");
+            Console.WriteLine("This program is a dungeon crawl game.");
         }
 
         public static void DisplayMainMenu()

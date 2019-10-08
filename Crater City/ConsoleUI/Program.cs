@@ -20,9 +20,7 @@ namespace ConsoleUI
             do
             {
                 // Ask user to either run the program or exit
-                Console.WriteLine("1. Run the program");
-                Console.WriteLine("2. Exit");
-                Console.Write("Enter 1 or 2 to select: ");
+                GameLibrary.StandardMessages.DisplayOpeningMenu();
 
                 // Declare varible to hold user input
                 string input = Console.ReadLine();
@@ -33,7 +31,7 @@ namespace ConsoleUI
 
 
                     // Display description of the program
-                    Console.WriteLine("This program is a dungeon crawl game.");
+                    GameLibrary.StandardMessages.DisplayProgramDescription();
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
@@ -45,7 +43,7 @@ namespace ConsoleUI
                 }
                 else
                 {
-                    Console.WriteLine("ERROR: You must enter 1 or 2.");
+                    GameLibrary.StandardMessages.DisplayOpeningMenuError();
                 }
 
             } while (exit == false);
