@@ -10,10 +10,10 @@ namespace GameLibrary
     {
         //List<string> items = new List<string>() {"Disguise", "Office Lunch", "Key Card", "ID Card"};
 
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Description { get; set; }
 
-        public Item(int id, string description)
+        public Item(string id, string description)
         {
             ID = id;
             Description = description;

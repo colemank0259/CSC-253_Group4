@@ -39,32 +39,32 @@ namespace GameLibrary
 
         public static List<Potion> potions = new List<Potion>()
         {
-            new Potion(1,"Health"),
-            new Potion(2,"Ability Boost"),
+            new Potion("P1","Health"),
+            new Potion("P2","Ability Boost"),
         };
 
         public static List<Treasure> treasures = new List<Treasure>()
         {
-            new Treasure(1,"Evidence of Alter Ego"),
-            new Treasure(2,"Proof of Criminal Activity"),
-            new Treasure(3,"Stolen Goods"),
+            new Treasure("T1","Evidence of Alter Ego"),
+            new Treasure("T2","Proof of Criminal Activity"),
+            new Treasure("T3","Stolen Goods"),
         };
 
         public static List<Item> items = new List<Item>()
         {
-            new Item(1,"Disguise"),
-            new Item(2,"Office Lunch"),
-            new Item(3,"Key Card"),
-            new Item(4,"ID Card"),
+            new Item("I1","Disguise"),
+            new Item("I2","Office Lunch"),
+            new Item("I3","Key Card"),
+            new Item("I4","ID Card"),
         };
 
         public static List<Mob> mobs = new List<Mob>()
         {
-            new Mob(1,"Robots", 0, 0, 0),
-            new Mob(2,"Police", 0, 0, 0),
-            new Mob(3,"Mutant Dogs", 0, 0, 0),
-            new Mob(4,"Gang Members", 0, 0, 0),
-            new Mob(5,"Supervillains", 0, 0, 0),
+            new Mob("M1","Robots", 0, 0, 0),
+            new Mob("M2","Police", 0, 0, 0),
+            new Mob("M3","Mutant Dogs", 0, 0, 0),
+            new Mob("M4","Gang Members", 0, 0, 0),
+            new Mob("M5","Supervillains", 0, 0, 0),
         };
 
         

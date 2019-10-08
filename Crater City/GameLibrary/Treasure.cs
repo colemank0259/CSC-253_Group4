@@ -10,10 +10,10 @@ namespace GameLibrary
     {
         //List<string> treasures = new List<string>() {"Evidence of Alter Ego", "Proof of Criminal Activity", "Stolen Goods"};
 
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Description { get; set; }
 
-        public Treasure(int id, string description)
+        public Treasure(string id, string description)
         {
             ID = id;
             Description = description;
