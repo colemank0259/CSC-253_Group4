@@ -8,7 +8,7 @@ namespace GameLibrary
 {
     public class Room
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Description { get; set; }
         public int North { get; set; }
 
@@ -18,7 +18,7 @@ namespace GameLibrary
 
         public int West { get; set; }
 
-        public Room(int id, string description, int north, int south, int east, int west)
+        public Room(string id, string description, int north, int south, int east, int west)
         {
             ID = id;
             Description = description;

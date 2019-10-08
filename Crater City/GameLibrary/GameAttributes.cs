@@ -10,13 +10,23 @@ namespace GameLibrary
     {
         public static List<Room> rooms = new List<Room>()
         {
-            new Room(1, "Mayor's Office", 1, -1, -1, -1),
-            new Room(2, "Sewers",-1, -1, -1, -1),
-            new Room(3, "Robot Factory", -1, -1, -1, -1),
-            new Room(4, "Genetics Lab", -1, -1, -1, -1),
-            new Room(5, "Rooftop", -1, -1, -1, -1),
-            new Room(6, "Bank", -1, -1, -1, -1),
-            new Room(7, "Main Street", -1, -1, -1, -1),
+            new Room("R1", "Mayor's Office", 1, -1, -1, -1),
+            new Room("R2", "Sewers",-1, -1, -1, -1),
+            new Room("R3", "Robot Factory", -1, -1, -1, -1),
+            new Room("R4", "Genetics Lab", -1, -1, -1, -1),
+            new Room("R5", "Rooftop", -1, -1, -1, -1),
+            new Room("R6", "Bank", -1, -1, -1, -1),
+            new Room("R7", "Main Street", -1, -1, -1, -1),
+
+            /**
+             * TODO: new room names
+             * 1. Hero's Base
+             * 2. (Multiple Streets to connect locations)
+             * 3. Museum
+             * 4. Gas Station
+             * 5. Grocery Store
+             * 6. Police Station
+             */
         };
 
         public static List<Weapon> weapons = new List<Weapon>()
