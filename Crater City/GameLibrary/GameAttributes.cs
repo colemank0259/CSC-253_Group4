@@ -8,6 +8,8 @@ namespace GameLibrary
 {
     public class GameAttributes
     {
+        // TODO Write text file with Game Attribute data
+
         public static List<Room> rooms = new List<Room>()
         {
             new Room("R1", "Mayor's Office", 1, -1, -1, -1),

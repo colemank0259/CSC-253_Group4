@@ -14,6 +14,9 @@ namespace GameLibrary
         public string PlayerClass { get; set; }
         public string PlayerRace { get; set; }
 
+        // TODO Get enumerators for Class and Race
+        // TODO Get movement
+        // TODO Create StreamWriter and StreamReader for Player information
         public Player(int playerID, string playerName, string playerPassword, string playerClass, string playerRace)
         {
             PlayerID = playerID;
