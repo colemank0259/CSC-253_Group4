@@ -13,12 +13,12 @@ namespace GameLibrary
         public static List<Room> rooms = new List<Room>()
         {
             new Room("R1", "Mayor's Office", 1, -1, -1, -1),
-            new Room("R2", "Sewers",-1, -1, -1, -1),
-            new Room("R3", "Robot Factory", -1, -1, -1, -1),
-            new Room("R4", "Genetics Lab", -1, -1, -1, -1),
-            new Room("R5", "Rooftop", -1, -1, -1, -1),
-            new Room("R6", "Bank", -1, -1, -1, -1),
-            new Room("R7", "Main Street", -1, -1, -1, -1),
+            new Room("R2", "Sewers",-1, 0, 2, -1),
+            new Room("R3", "Robot Factory", 3, -1, -1, 1),
+            new Room("R4", "Genetics Lab", -1, 2, 4, -1),
+            new Room("R5", "Rooftop", 5, -1, -1, 3),
+            new Room("R6", "Bank", 6, 4, -1, -1),
+            new Room("R7", "Main Street", -1, 5, -1, -1),
 
             /**
              * TODO: new room names

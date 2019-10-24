@@ -6,3 +6,8 @@ C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.csproj.CoreCompileInputs.cache
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.dll
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.pdb
+C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\bin\Debug\GameLibrary.dll
+C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\bin\Debug\GameLibrary.pdb
+C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.csprojAssemblyReference.cache
+C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.dll
+C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.pdb
