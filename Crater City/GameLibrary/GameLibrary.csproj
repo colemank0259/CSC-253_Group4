@@ -45,6 +45,8 @@
     <Compile Include="Item.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerClass.cs" />
+    <Compile Include="PlayerRace.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
