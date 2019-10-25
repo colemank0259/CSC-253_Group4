@@ -38,5 +38,15 @@ namespace GameLibrary
         {
             Console.WriteLine("");
         }
+
+        public static void PromptPlayerName()
+        {
+
+        }
+
+        public static void PromptPlayerPassword()
+        {
+
+        }
     }
 }
