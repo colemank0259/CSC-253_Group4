@@ -11,7 +11,6 @@ C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\bin\D
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\bin\Debug\GameLibrary.dll
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\bin\Debug\GameLibrary.pdb
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\obj\Debug\ConsoleUI.csprojAssemblyReference.cache
-C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\obj\Debug\ConsoleUI.exe
 C:\Users\wrightc4718\Documents\GitHub\CSC-253_Group4\Crater City\ConsoleUI\obj\Debug\ConsoleUI.pdb
