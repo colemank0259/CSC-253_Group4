@@ -53,6 +53,9 @@ namespace ConsoleUI
                     // Consume the next line for appearance
                     Console.WriteLine("");
 
+                    // Get player profile
+
+
                     // Get player movement
                     GetPlayerMovement();
 
