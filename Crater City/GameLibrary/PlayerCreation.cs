@@ -8,5 +8,9 @@ namespace GameLibrary
 {
     public class PlayerCreation
     {
+        public static Player GetPlayerID(Player myPlayer)
+        {
+
+        }
     }
 }
