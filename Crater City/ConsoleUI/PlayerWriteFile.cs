@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    class PlayerWriteFile
+    public class PlayerWriteFile
     {
+        public static void CreateFile(PlayerClass myPlayer)
+        {
+            try
+            {
+                StreamWriter outputFile;
+                outputFile = File.CreateText("Player.txt");
+
+                outputFile.WriteLine(myPlayer.Player);
+
+                outputFile.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("File not created!");
+            }
+        }
     }
 }
