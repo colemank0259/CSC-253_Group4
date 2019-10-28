@@ -15,8 +15,8 @@ namespace ConsoleUI
     class Program
     {
         static void Main(string[] args)
-        { 
-            Player myPlayer = new Player();
+        {
+            Player myPlayer = new Player(0, null, null, null, null);
 
             
 
