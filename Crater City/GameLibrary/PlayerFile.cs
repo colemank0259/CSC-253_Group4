@@ -22,7 +22,9 @@ namespace GameLibrary
                     CreatePlayerFile(myPlayer);
                     break;
                 case "2":
-                    GetReturningPlayer()
+                    GetReturningPlayer();
+                default:
+                    // TODO Write error message for GetPlayer method
 
             }
         }
@@ -137,10 +139,7 @@ namespace GameLibrary
                 playerCount++;
             }
 
-            //for (int index = 0; index <= playerCount; index++)
-            //{
-
-            //}
+            // TODO finish GetReturningPlayer method
 
             return myPlayer;
         }
