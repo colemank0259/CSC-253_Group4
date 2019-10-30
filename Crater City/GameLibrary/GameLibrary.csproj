@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameAttributes.cs" />
+    <Compile Include="IRoom.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Potion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RoomFile.cs" />
     <Compile Include="StandardMessages.cs" />
     <Compile Include="Treasure.cs" />
     <Compile Include="Weapon.cs" />

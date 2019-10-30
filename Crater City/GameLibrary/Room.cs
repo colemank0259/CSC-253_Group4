@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Room
+    public class Room : IRoom
     {
         public string ID { get; set; }
         public string Description { get; set; }
