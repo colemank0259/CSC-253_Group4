@@ -7,11 +7,19 @@ using System.IO;
 
 namespace GameLibrary
 {
-    public class RoomFile : IRoom
+    public class RoomFile
     {
         public static List<Room> GetRooms()
         {
             // TODO finish StreamReader for Rooms.csv
+
+            // Local variables
+            string id;
+            string description;
+            int north;
+            int south;
+            int east;
+            int west;
 
             try
             {
@@ -19,15 +27,27 @@ namespace GameLibrary
 
                 StreamReader inputFile;
 
-                inputFile = File.OpenText("Rooms.csv");
+                inputFile = File.OpenText("RoomsTest.csv");
 
                 while (!inputFile.EndOfStream)
                 {
-                    char[] delim = { ',' };
+                    //char[] delim = { ',' };
                     //string[] commaDemo = demo1.Split(delim);
 
-                    Room myRoom = new Room();
+                    string inputData = inputFile.ReadLine();
+                    string[] splitter = inputData.Split(',');
+
+                    id = Convert.ToString(splitter[0]);
+                    description = Convert.ToString(splitter[1]);
+                    north = Convert.ToInt32(splitter[2]);
+                    south = Convert.ToInt32(splitter[3]);
+                    east = Convert.ToInt32(splitter[4]);
+                    west = Convert.ToInt32(splitter[5]);
+
+                    Room myRoom = new Room(id, description, north, south, east, west);
                     myRooms.Add(myRoom);
+
+
                 }
 
                 inputFile.Close();
@@ -36,7 +56,7 @@ namespace GameLibrary
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Data Read Error");
+                Console.WriteLine("Data Read Error from RoomFile.cs");
                 return null;
             }
         }

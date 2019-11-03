@@ -9,28 +9,30 @@ namespace GameLibrary
     public class GameAttributes
     {
         // TODO Write text file with Game Attribute data
+        public static List<Room> rooms = RoomFile.GetRooms();
 
-        public static List<Room> rooms = new List<Room>()
-        {
-            // TODO get rooms from Rooms.csv using StreamReader
-            new Room("R1", "Mayor's Office", 1, -1, -1, -1),
-            new Room("R2", "Sewers",-1, 0, 2, -1),
-            new Room("R3", "Robot Factory", 3, -1, -1, 1),
-            new Room("R4", "Genetics Lab", -1, 2, 4, -1),
-            new Room("R5", "Rooftop", 5, -1, -1, 3),
-            new Room("R6", "Bank", 6, 4, -1, -1),
-            new Room("R7", "Main Street", -1, 5, -1, -1),
+        //public static List<Room> rooms = new List<Room>()
+        //{
+        //    // TODO get rooms from Rooms.csv using StreamReader
+        //    new Room("R1", "Mayor's Office", 1, -1, -1, -1),
+        //    new Room("R2", "Sewers",-1, 0, 2, -1),
+        //    new Room("R3", "Robot Factory", 3, -1, -1, 1),
+        //    new Room("R4", "Genetics Lab", -1, 2, 4, -1),
+        //    new Room("R5", "Rooftop", 5, -1, -1, 3),
+        //    new Room("R6", "Bank", 6, 4, -1, -1),
+        //    new Room("R7", "Main Street", -1, 5, -1, -1),
 
-            /**
-             * TODO: new room names
-             * 1. Hero's Base
-             * 2. (Multiple Streets to connect locations)
-             * 3. Museum
-             * 4. Gas Station
-             * 5. Grocery Store
-             * 6. Police Station
-             */
-        };
+        //    /**
+        //     * TODO: new room names
+        //     * 1. Hero's Base
+        //     * 2. (Multiple Streets to connect locations)
+        //     * 3. Museum
+        //     * 4. Gas Station
+        //     * 5. Grocery Store
+        //     * 6. Police Station
+        //     */
+        //};
+
 
         public static List<Weapon> weapons = new List<Weapon>()
         {
