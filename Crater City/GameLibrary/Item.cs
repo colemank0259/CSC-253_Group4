@@ -8,7 +8,7 @@ namespace GameLibrary
 {
     public class Item
     {
-        //List<string> items = new List<string>() {"Disguise", "Office Lunch", "Key Card", "ID Card"};
+        // TODO may be used as a parent for more specific classes and files (i.e. keys, disguises, etc.), replacing the current Items.csv file in the near future.
 
         public string ID { get; set; }
         public string Description { get; set; }

@@ -8,7 +8,7 @@ namespace GameLibrary
 {
     public class Mob
     {
-        //List<string> mobs = new List<string>() {"Robots", "Police", "Mutant Dogs", "Gang Members", "Supervillains"};
+        // TODO copy Mobs and add position and movement; may need addtional class
 
         public string ID { get; set; }
         public string Description { get; set; }

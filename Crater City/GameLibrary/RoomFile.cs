@@ -11,8 +11,6 @@ namespace GameLibrary
     {
         public static List<Room> GetRooms()
         {
-            // TODO finish StreamReader for Rooms.csv
-
             // Local variables
             string id = null;
             string description = null;
