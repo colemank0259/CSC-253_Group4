@@ -14,50 +14,41 @@ namespace GameLibrary
             // TODO finish StreamReader for Rooms.csv
 
             // Local variables
-            string id;
-            string description;
-            int north;
-            int south;
-            int east;
-            int west;
+            string id = null;
+            string description = null;
+            int north = 0;
+            int south = 0;
+            int east = 0;
+            int west = 0;
 
             try
             {
                 List<Room> myRooms = new List<Room>();
 
-                StreamReader inputFile;
+                List<string> lines = File.ReadAllLines("Rooms.csv").ToList();
 
-                inputFile = File.OpenText("RoomsTest.csv");
-
-                while (!inputFile.EndOfStream)
+                foreach (var line in lines)
                 {
-                    //char[] delim = { ',' };
-                    //string[] commaDemo = demo1.Split(delim);
+                    string[] splitter = line.Split(',');
 
-                    string inputData = inputFile.ReadLine();
-                    string[] splitter = inputData.Split(',');
+                    Room newRoom = new Room(id, description, north, south, east, west);
 
-                    id = Convert.ToString(splitter[0]);
-                    description = Convert.ToString(splitter[1]);
-                    north = Convert.ToInt32(splitter[2]);
-                    south = Convert.ToInt32(splitter[3]);
-                    east = Convert.ToInt32(splitter[4]);
-                    west = Convert.ToInt32(splitter[5]);
+                    newRoom.ID = splitter[0];
+                    newRoom.Description = splitter[1];
+                    newRoom.North = int.Parse(splitter[2]);
+                    newRoom.South = int.Parse(splitter[3]);
+                    newRoom.East = int.Parse(splitter[4]);
+                    newRoom.West = int.Parse(splitter[5]);
 
-                    Room myRoom = new Room(id, description, north, south, east, west);
-                    myRooms.Add(myRoom);
-
-
+                    myRooms.Add(newRoom);
                 }
-
-                inputFile.Close();
 
                 return myRooms;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Data Read Error from RoomFile.cs");
-                return null;
+                throw new ApplicationException("Data Read Error from RoomFile.cs", ex);
             }
         }
     }

@@ -18,21 +18,7 @@ namespace ConsoleUI
         {
             Player myPlayer = new Player(0, null, null, null, null);
 
-            
-
             bool exit = false;
-
-            //do
-            //{
-            //    Console.WriteLine(Player.CurrentRoom.Description);
-            //    Console.Write("Which direction do you want to move? ");
-            //    string userInput = Console.ReadLine();
-            //    PlayerMovement.GetMovement(userInput);
-            //    Console.ReadLine();
-            //} while (exit == false);
-
-            //Console.ReadLine();
-
 
 
             do

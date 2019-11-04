@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Combat.cs" />
     <Compile Include="GameAttributes.cs" />
-    <Compile Include="IRoom.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
