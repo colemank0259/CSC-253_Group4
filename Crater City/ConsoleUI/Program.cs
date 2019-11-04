@@ -64,7 +64,7 @@ namespace ConsoleUI
 
             do
             {
-                Console.WriteLine(Player.CurrentRoom.Description);
+                Console.WriteLine(CurrentPlayer.CurrentRoom.Description);
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
                 PlayerMovement.GetMovement(userInput);

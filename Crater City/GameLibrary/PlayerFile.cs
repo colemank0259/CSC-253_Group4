@@ -9,33 +9,31 @@ namespace GameLibrary
 {
     public class PlayerFile
     {
-        //public static Player GetPlayer(Player myPlayer)
-        //{
-        //    // Local variables
-        //    string inputString;
+        public static Player GetPlayer(Player myPlayer, List<Player> myPlayers)
+        {
+            // TODO Move GetPlayer() to CurrentPlayer.cs
 
-        //    StandardMessages.PromptPlayerSignIn();
-        //    inputString = Console.ReadLine();
-        //    switch (inputString)
-        //    {
-        //        case "1":
-        //            CreatePlayerFile(myPlayer);
-        //            break;
-        //        case "2":
-        //            GetReturningPlayer();
-        //        default:
-        //            // TODO Write error message for GetPlayer method
+            // Local variables
+            string inputString;
 
-        //    }
-        //}
+            StandardMessages.PromptPlayerSignIn();
+            inputString = Console.ReadLine();
+            switch (inputString)
+            {
+                case "1":
+                    myPlayer = CreatePlayerFile(myPlayer);
+                    return myPlayer;
+                case "2":
+                    GetReturningPlayer(myPlayer, myPlayers);
+                    return myPlayer;
+                default:
+                    Console.WriteLine("ERROR: You must enter 1 or 2 to select an option.");
+                    return null;
+            }
+        }
         public static Player CreatePlayerFile(Player myPlayer)
         {
             // Local variables
-            int playerID = 0;
-            string playerName = null;
-            string playerPassword = null;
-            string playerClass = null;
-            string playerRace = null;
             int playerCount = 0;
 
             try
@@ -61,7 +59,7 @@ namespace GameLibrary
                 // TODO validate class with  enumerators
                 StandardMessages.PromptPlayerRace();
                 myPlayer.PlayerRace = Console.ReadLine();
-                // TODO validate rece with  enumerators
+                // TODO validate race with  enumerators
 
                 lines.Add($"{myPlayer.PlayerID},{myPlayer.PlayerName},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
 
@@ -69,86 +67,52 @@ namespace GameLibrary
             }
             catch (Exception ex)
             {
-                Console.WriteLine("File not created!");
+                Console.WriteLine("Data Write Error from PlayerFile.cs", ex);
                 return null;
             }
         }
 
-        public static List<Player> ReadPlayerFile(Player myPlayer)
+        public static List<Player> GetPlayers(Player newPlayer)
         {
-            // TODO Finish ReadPlayerFile()
-
-            // Local variables
-            int playerID = 0;
-            string playerName = null;
-            string playerPassword = null;
-            string playerClass = null;
-            string playerRace = null;
-
             try
             {
                 List<Player> myPlayers = new List<Player>();
 
-                //StreamReader inputFile;
-
-                //inputFile = File.OpenText("PlayerFile.txt");
-
-                //while (!inputFile.EndOfStream)
-                //{
-                //    playerID = int.Parse(inputFile.ReadLine());
-                //    playerName = inputFile.ReadLine();
-                //    playerPassword = inputFile.ReadLine();
-                //    playerClass = inputFile.ReadLine();
-                //    playerRace = inputFile.ReadLine();
-                //    myPlayer = new Player(playerID, playerName, playerPassword, playerClass, playerRace);
-                //    myPlayers.Add(myPlayer);
-                //}
-
-                //inputFile.Close();
-
                 List<string> lines = File.ReadAllLines("Players.csv").ToList();
+
+                foreach (var line in lines)
+                {
+                    string[] splitter = line.Split(',');
+
+                    newPlayer.PlayerID = int.Parse(splitter[0]);
+                    newPlayer.PlayerName = splitter[1];
+                    newPlayer.PlayerPassword = splitter[2];
+                    newPlayer.PlayerClass = splitter[3];
+                    newPlayer.PlayerRace = splitter[4];
+
+                    myPlayers.Add(newPlayer);
+                }
 
                 return myPlayers;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Data Read Error");
-                return null;
+                Console.WriteLine("Data Read Error from PlayerFile.cs");
+                throw new ApplicationException("Data Read Error from PlayerFile.cs", ex);
             }
-
-            //List<Player> myPlayers = new List<Player>();
-
-            //StreamReader inputFile;
-
-            //inputFile = File.OpenText("PlayerFile.txt");
-
-            //while (!inputFile.EndOfStream)
-            //{
-            //    playerID = int.Parse(inputFile.ReadLine());
-            //    playerName = inputFile.ReadLine();
-            //    playerPassword = inputFile.ReadLine();
-            //    playerClass = inputFile.ReadLine();
-            //    playerRace = inputFile.ReadLine();
-            //    myPlayer = new Player(playerID, playerName, playerPassword, playerClass, playerRace);
-            //    myPlayers.Add(myPlayer);
-            //}
-
-            //foreach (Player player in myPlayers)
-            //{
-            //    Console.WriteLine($"");
-            //}
-
         }
 
         public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
             // Local variables
             int playerCount = 0;
+            myPlayers = GetPlayers(myPlayer);
 
             foreach (Player player in myPlayers)
             {
                 Console.WriteLine($"Player ID: {myPlayer.PlayerID}");
                 Console.WriteLine($"Player Name: {myPlayer.PlayerName}");
+                Console.WriteLine("");
                 playerCount++;
             }
 

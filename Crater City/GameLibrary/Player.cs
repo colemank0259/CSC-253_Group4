@@ -13,10 +13,8 @@ namespace GameLibrary
         public string PlayerPassword { get; set; }
         public string PlayerClass { get; set; }
         public string PlayerRace { get; set; }
-        public static Room CurrentRoom { get; set; }
+        //public static Room CurrentRoom { get; set; }
 
-        // TODO Get enumerators for Class and Race
-        // TODO Create StreamWriter and StreamReader for Player information
         public Player(int playerID, string playerName, string playerPassword, string playerClass, string playerRace)
         {
             PlayerID = playerID;
@@ -24,7 +22,7 @@ namespace GameLibrary
             PlayerPassword = playerPassword;
             PlayerClass = playerClass;
             PlayerRace = playerRace;
-            CurrentRoom = GameAttributes.rooms[0];
+            //CurrentRoom = GameAttributes.rooms[0];
         }
     }
 }
