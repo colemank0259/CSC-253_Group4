@@ -55,10 +55,13 @@ namespace GameLibrary
                 myPlayer.PlayerName = Console.ReadLine();
                 StandardMessages.PromptPlayerPassword();
                 myPlayer.PlayerPassword = Console.ReadLine();
+                // TODO validate password
                 StandardMessages.PromptPlayerClass();
                 myPlayer.PlayerClass = Console.ReadLine();
+                // TODO validate class with  enumerators
                 StandardMessages.PromptPlayerRace();
                 myPlayer.PlayerRace = Console.ReadLine();
+                // TODO validate rece with  enumerators
 
                 lines.Add($"{myPlayer.PlayerID},{myPlayer.PlayerName},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
 
