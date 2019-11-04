@@ -28,44 +28,52 @@ namespace GameLibrary
 
         //    }
         //}
-        //public static Player CreatePlayerFile(Player myPlayer)
-        //{
-        //    // Local variables
-        //    Random rand = new Random();
-        //    try
-        //    {
-        //        StreamWriter outputFile;
+        public static Player CreatePlayerFile(Player myPlayer)
+        {
+            // Local variables
+            int playerID = 0;
+            string playerName = null;
+            string playerPassword = null;
+            string playerClass = null;
+            string playerRace = null;
+            int playerCount = 0;
 
-        //        outputFile = File.AppendText("PlayerFile.txt");
-        //        myPlayer.PlayerID = rand.Next(1, 100);
-        //        outputFile.WriteLine(myPlayer.PlayerID);
-        //        StandardMessages.PromptPlayerName();
-        //        myPlayer.PlayerName = Console.ReadLine();
-        //        outputFile.WriteLine(myPlayer.PlayerName);
-        //        StandardMessages.PromptPlayerPassword();
-        //        myPlayer.PlayerPassword = Console.ReadLine();
-        //        outputFile.WriteLine(myPlayer.PlayerPassword);
-        //        StandardMessages.PromptPlayerClass();
-        //        myPlayer.PlayerClass = Console.ReadLine();
-        //        outputFile.WriteLine(myPlayer.PlayerClass);
-        //        StandardMessages.PromptPlayerRace();
-        //        myPlayer.PlayerRace = Console.ReadLine();
-        //        outputFile.WriteLine(myPlayer.PlayerRace);
+            try
+            {
 
-        //        outputFile.Close();
+                List<Player> myPlayers = new List<Player>();
 
-        //        return myPlayer;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("File not created!");
-        //        return null;
-        //    }
-        //}
+                List<string> lines = File.ReadAllLines("Players.csv").ToList();
+                
+                foreach(var line in lines)
+                {
+                    playerCount++;
+                }
+
+                myPlayer.PlayerID = playerCount + 1;
+                StandardMessages.PromptPlayerName();
+                myPlayer.PlayerName = Console.ReadLine();
+                StandardMessages.PromptPlayerPassword();
+                myPlayer.PlayerPassword = Console.ReadLine();
+                StandardMessages.PromptPlayerClass();
+                myPlayer.PlayerClass = Console.ReadLine();
+                StandardMessages.PromptPlayerRace();
+                myPlayer.PlayerRace = Console.ReadLine();
+
+                lines.Add($"{myPlayer.PlayerID},{myPlayer.PlayerName},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
+
+                return myPlayer;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("File not created!");
+                return null;
+            }
+        }
 
         public static List<Player> ReadPlayerFile(Player myPlayer)
         {
-            // TODO Finish StreamReader
+            // TODO Finish ReadPlayerFile()
 
             // Local variables
             int playerID = 0;
@@ -78,22 +86,24 @@ namespace GameLibrary
             {
                 List<Player> myPlayers = new List<Player>();
 
-                StreamReader inputFile;
+                //StreamReader inputFile;
 
-                inputFile = File.OpenText("PlayerFile.txt");
+                //inputFile = File.OpenText("PlayerFile.txt");
 
-                while (!inputFile.EndOfStream)
-                {
-                    playerID = int.Parse(inputFile.ReadLine());
-                    playerName = inputFile.ReadLine();
-                    playerPassword = inputFile.ReadLine();
-                    playerClass = inputFile.ReadLine();
-                    playerRace = inputFile.ReadLine();
-                    myPlayer = new Player(playerID, playerName, playerPassword, playerClass, playerRace);
-                    myPlayers.Add(myPlayer);
-                }
+                //while (!inputFile.EndOfStream)
+                //{
+                //    playerID = int.Parse(inputFile.ReadLine());
+                //    playerName = inputFile.ReadLine();
+                //    playerPassword = inputFile.ReadLine();
+                //    playerClass = inputFile.ReadLine();
+                //    playerRace = inputFile.ReadLine();
+                //    myPlayer = new Player(playerID, playerName, playerPassword, playerClass, playerRace);
+                //    myPlayers.Add(myPlayer);
+                //}
 
-                inputFile.Close();
+                //inputFile.Close();
+
+                List<string> lines = File.ReadAllLines("Players.csv").ToList();
 
                 return myPlayers;
             }
