@@ -19,7 +19,7 @@ namespace GameLibrary
             {
                 List<Item> myItems = new List<Item>();
 
-                List<string> lines = File.ReadAllLines("Item.csv").ToList();
+                List<string> lines = File.ReadAllLines("Items.csv").ToList();
 
                 foreach (var line in lines)
                 {
