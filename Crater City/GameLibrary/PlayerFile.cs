@@ -11,8 +11,6 @@ namespace GameLibrary
     {
         public static Player GetPlayer(Player myPlayer, List<Player> myPlayers)
         {
-            // TODO Move GetPlayer() to CurrentPlayer.cs
-
             // Local variables
             string inputString;
 
@@ -105,15 +103,24 @@ namespace GameLibrary
         public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
             // Local variables
-            int playerCount = 0;
+            string inputString;
+
             myPlayers = GetPlayers(myPlayer);
+
+            // Prompt user to enter an existing Player Name
+            StandardMessages.PromptReturningPlayerSignIn();
+            inputString = Console.ReadLine();
 
             foreach (Player player in myPlayers)
             {
-                Console.WriteLine($"Player ID: {myPlayer.PlayerID}");
-                Console.WriteLine($"Player Name: {myPlayer.PlayerName}");
-                Console.WriteLine("");
-                playerCount++;
+                if (inputString.ToLower() == player.PlayerName.ToLower())
+                {
+                    StandardMessages.PromptPlayerPassword();
+                    if (inputString == player.PlayerPassword)
+                    {
+                        myPlayer = player;
+                    }
+                }
             }
 
             // TODO finish GetReturningPlayer method

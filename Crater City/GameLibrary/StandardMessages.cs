@@ -53,7 +53,7 @@ namespace GameLibrary
 
         public static void PromptReturningPlayerSignIn()
         {
-
+            Console.Write("Enter your existing Player Name:");
         }
 
         public static void PromptPlayerName()

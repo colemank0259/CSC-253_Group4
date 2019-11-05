@@ -17,7 +17,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             Player myPlayer = new Player(0, null, null, null, null);
-
+            // TODO declare CurrentPlayer
+            List<Player> myPlayers = new List<Player>();
             bool exit = false;
 
 
@@ -40,7 +41,35 @@ namespace ConsoleUI
                     Console.WriteLine("");
 
                     // Get player profile
+                    //myPlayer = PlayerFile.GetPlayer(myPlayer, myPlayers);
 
+                    // Display player information
+                    Console.WriteLine($"Player Name: {myPlayer.PlayerName}");
+                    Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
+                    Console.WriteLine($"Player Class: {myPlayer.PlayerClass}");
+
+                    // Consume the next line for appearance
+                    Console.WriteLine("");
+
+                    // Display room names for testing (remove later)
+                    Console.WriteLine("Rooms:");
+                    foreach(Room room in GameAttributes.rooms)
+                    {
+                        Console.WriteLine($"{room.Description}");
+                    }
+
+                    // Consume the next line for appearance
+                    Console.WriteLine("");
+
+                    // Display weapon names for testing (remove later)
+                    Console.WriteLine("Weapons:");
+                    foreach (Weapon weapon in GameAttributes.weapons)
+                    {
+                        Console.WriteLine($"{weapon.Description}");
+                    }
+
+                    // Consume the next line for appearance
+                    Console.WriteLine("");
 
                     // Get player movement
                     GetPlayerMovement();
