@@ -12,8 +12,8 @@ namespace GameLibrary
         public static List<Room> GetRooms()
         {
             // Local variables
-            string id = null;
-            string description = null;
+            int id = 0;
+            string name = null;
             int north = 0;
             int south = 0;
             int east = 0;
@@ -29,10 +29,10 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Room newRoom = new Room(id, description, north, south, east, west);
+                    Room newRoom = new Room(id, name, north, south, east, west);
 
-                    newRoom.ID = splitter[0];
-                    newRoom.Description = splitter[1];
+                    newRoom.ID = int.Parse(splitter[0]);
+                    newRoom.Name = splitter[1];
                     newRoom.North = int.Parse(splitter[2]);
                     newRoom.South = int.Parse(splitter[3]);
                     newRoom.East = int.Parse(splitter[4]);

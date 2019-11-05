@@ -12,8 +12,8 @@ namespace GameLibrary
         public static List<Item> GetItems()
         {
             // Local variables
-            string id = null;
-            string description = null;
+            int id = 0;
+            string name = null;
 
             try
             {
@@ -25,10 +25,10 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Item newItem = new Item(id, description);
+                    Item newItem = new Item(id, name);
 
-                    newItem.ID = splitter[0];
-                    newItem.Description = splitter[1];
+                    newItem.ID = int.Parse(splitter[0]);
+                    newItem.Name = splitter[1];
 
                     // TODO may use Item.cs a parent for more specific classes and files (i.e. keys, disguises, etc.), replacing the current Items.csv file in the near future.
 

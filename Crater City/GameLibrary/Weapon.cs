@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Weapon
+    public class Weapon : GameObject
     {
         //List<string> weapons = new List<string>() {"Energy Blaster", "Power Gauntlets", "Sonic Cannon", "Pulse Blade"};
 
-        public string ID { get; set; }
-        public string Description { get; set; }
+        //public string ID { get; set; }
+        //public string Description { get; set; }
         public string Type { get; set; }
         public int Damage { get; set; }
 
-        public Weapon(string id, string description, string type, int damage)
+        public Weapon(int id, string name, string type, int damage) : base (id, name)
         {
-            ID = id;
-            Description = description;
+            //ID = id;
+            //Description = description;
             Type = type;
             Damage = damage;
         }

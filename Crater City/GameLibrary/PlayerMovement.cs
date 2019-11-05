@@ -12,9 +12,9 @@ namespace GameLibrary
         {
             if (input.ToLower() == "north")
             {
-                if (Player.CurrentRoom.North != -1)
+                if (CurrentPlayer.CurrentRoom.North != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.North];
+                    CurrentPlayer.CurrentRoom = GameAttributes.rooms[CurrentPlayer.CurrentRoom.North];
                 }
                 else
                 {
@@ -23,9 +23,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "south")
             {
-                if (Player.CurrentRoom.South != -1)
+                if (CurrentPlayer.CurrentRoom.South != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.South];
+                    CurrentPlayer.CurrentRoom = GameAttributes.rooms[CurrentPlayer.CurrentRoom.South];
                 }
                 else
                 {
@@ -34,9 +34,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "east")
             {
-                if (Player.CurrentRoom.East != -1)
+                if (CurrentPlayer.CurrentRoom.East != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.East];
+                    CurrentPlayer.CurrentRoom = GameAttributes.rooms[CurrentPlayer.CurrentRoom.East];
                 }
                 else
                 {
@@ -45,9 +45,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "west")
             {
-                if (Player.CurrentRoom.West != -1)
+                if (CurrentPlayer.CurrentRoom.West != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.West];
+                    CurrentPlayer.CurrentRoom = GameAttributes.rooms[CurrentPlayer.CurrentRoom.West];
                 }
                 else
                 {
@@ -59,5 +59,57 @@ namespace GameLibrary
                 Console.WriteLine("Error: You must enter north, south, east, or west.");
             }
         }
+
+        //public static void GetMovement(string input)
+        //{
+        //    if (input.ToLower() == "north")
+        //    {
+        //        if (Player.CurrentRoom.North != -1)
+        //        {
+        //            Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.North];
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("You can't go that way. Choose another direction.");
+        //        }
+        //    }
+        //    else if (input.ToLower() == "south")
+        //    {
+        //        if (Player.CurrentRoom.South != -1)
+        //        {
+        //            Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.South];
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("You can't go that way. Choose another direction.");
+        //        }
+        //    }
+        //    else if (input.ToLower() == "east")
+        //    {
+        //        if (Player.CurrentRoom.East != -1)
+        //        {
+        //            Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.East];
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("You can't go that way. Choose another direction.");
+        //        }
+        //    }
+        //    else if (input.ToLower() == "west")
+        //    {
+        //        if (Player.CurrentRoom.West != -1)
+        //        {
+        //            Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.West];
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("You can't go that way. Choose another direction.");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Error: You must enter north, south, east, or west.");
+        //    }
+        //}
     }
 }

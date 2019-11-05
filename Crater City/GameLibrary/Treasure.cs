@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Treasure
+    public class Treasure : GameObject
     {
         //List<string> treasures = new List<string>() {"Evidence of Alter Ego", "Proof of Criminal Activity", "Stolen Goods"};
 
-        public string ID { get; set; }
-        public string Description { get; set; }
+        //public string ID { get; set; }
+        //public string Description { get; set; }
 
-        public Treasure(string id, string description)
+        public Treasure(int id, string name) : base (id, name)
         {
             ID = id;
-            Description = description;
+            Name = name;
         }
     }
 }

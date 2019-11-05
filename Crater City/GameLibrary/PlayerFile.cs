@@ -9,20 +9,31 @@ namespace GameLibrary
 {
     public class PlayerFile
     {
-        public static Player GetPlayer(Player myPlayer, List<Player> myPlayers)
+        public static CurrentPlayer GetPlayer(Player newPlayer, List<Player> myPlayers)
         {
             // Local variables
             string inputString;
+            CurrentPlayer myPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
 
             StandardMessages.PromptPlayerSignIn();
             inputString = Console.ReadLine();
             switch (inputString)
             {
                 case "1":
-                    myPlayer = CreatePlayerFile(myPlayer);
+                    newPlayer = CreatePlayerFile(newPlayer);
+                    myPlayer.ID = newPlayer.ID;
+                    myPlayer.Name = newPlayer.Name;
+                    myPlayer.PlayerPassword = newPlayer.PlayerPassword;
+                    myPlayer.PlayerClass = newPlayer.PlayerClass;
+                    myPlayer.PlayerRace = newPlayer.PlayerRace;
                     return myPlayer;
                 case "2":
-                    GetReturningPlayer(myPlayer, myPlayers);
+                    GetReturningPlayer(newPlayer, myPlayers);
+                    myPlayer.ID = newPlayer.ID;
+                    myPlayer.Name = newPlayer.Name;
+                    myPlayer.PlayerPassword = newPlayer.PlayerPassword;
+                    myPlayer.PlayerClass = newPlayer.PlayerClass;
+                    myPlayer.PlayerRace = newPlayer.PlayerRace;
                     return myPlayer;
                 default:
                     Console.WriteLine("ERROR: You must enter 1 or 2 to select an option.");
@@ -46,9 +57,9 @@ namespace GameLibrary
                     playerCount++;
                 }
 
-                myPlayer.PlayerID = playerCount + 1;
+                myPlayer.ID = playerCount + 1;
                 StandardMessages.PromptPlayerName();
-                myPlayer.PlayerName = Console.ReadLine();
+                myPlayer.Name = Console.ReadLine();
                 StandardMessages.PromptPlayerPassword();
                 myPlayer.PlayerPassword = Console.ReadLine();
                 // TODO validate password
@@ -59,7 +70,7 @@ namespace GameLibrary
                 myPlayer.PlayerRace = Console.ReadLine();
                 // TODO validate race with  enumerators
 
-                lines.Add($"{myPlayer.PlayerID},{myPlayer.PlayerName},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
+                lines.Add($"{myPlayer.ID},{myPlayer.Name},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
 
                 return myPlayer;
             }
@@ -82,8 +93,8 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    newPlayer.PlayerID = int.Parse(splitter[0]);
-                    newPlayer.PlayerName = splitter[1];
+                    newPlayer.ID = int.Parse(splitter[0]);
+                    newPlayer.Name = splitter[1];
                     newPlayer.PlayerPassword = splitter[2];
                     newPlayer.PlayerClass = splitter[3];
                     newPlayer.PlayerRace = splitter[4];
@@ -113,7 +124,7 @@ namespace GameLibrary
 
             foreach (Player player in myPlayers)
             {
-                if (inputString.ToLower() == player.PlayerName.ToLower())
+                if (inputString.ToLower() == player.Name.ToLower())
                 {
                     StandardMessages.PromptPlayerPassword();
                     if (inputString == player.PlayerPassword)

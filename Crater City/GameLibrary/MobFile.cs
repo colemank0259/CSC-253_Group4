@@ -12,8 +12,8 @@ namespace GameLibrary
         public static List<Mob> GetMobs()
         {
             // Local variables
-            string id = null;
-            string description = null;
+            int id = 0;
+            string name = null;
             int strength = 0;
             int speed = 0;
             int hp = 0;
@@ -28,10 +28,10 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Mob newMob = new Mob(id, description, strength, speed, hp);
+                    Mob newMob = new Mob(id, name, strength, speed, hp);
 
-                    newMob.ID = splitter[0];
-                    newMob.Description = splitter[1];
+                    newMob.ID = int.Parse(splitter[0]);
+                    newMob.Name = splitter[1];
                     newMob.Strength = int.Parse(splitter[2]);
                     newMob.Speed = int.Parse(splitter[3]);
                     newMob.HP = int.Parse(splitter[4]);

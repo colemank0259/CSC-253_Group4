@@ -16,8 +16,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Player myPlayer = new Player(0, null, null, null, null);
-            // TODO declare CurrentPlayer
+            Player newPlayer = new Player(0, null, null, null, null);
+            CurrentPlayer myPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
             List<Player> myPlayers = new List<Player>();
             bool exit = false;
 
@@ -41,10 +41,10 @@ namespace ConsoleUI
                     Console.WriteLine("");
 
                     // Get player profile
-                    //myPlayer = PlayerFile.GetPlayer(myPlayer, myPlayers);
+                    myPlayer = PlayerFile.GetPlayer(newPlayer, myPlayers);
 
                     // Display player information
-                    Console.WriteLine($"Player Name: {myPlayer.PlayerName}");
+                    Console.WriteLine($"Player Name: {myPlayer.Name}");
                     Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
                     Console.WriteLine($"Player Class: {myPlayer.PlayerClass}");
 
@@ -55,7 +55,7 @@ namespace ConsoleUI
                     Console.WriteLine("Rooms:");
                     foreach(Room room in GameAttributes.rooms)
                     {
-                        Console.WriteLine($"{room.Description}");
+                        Console.WriteLine($"{room.Name}");
                     }
 
                     // Consume the next line for appearance
@@ -65,7 +65,7 @@ namespace ConsoleUI
                     Console.WriteLine("Weapons:");
                     foreach (Weapon weapon in GameAttributes.weapons)
                     {
-                        Console.WriteLine($"{weapon.Description}");
+                        Console.WriteLine($"{weapon.Name}");
                     }
 
                     // Consume the next line for appearance
@@ -93,7 +93,7 @@ namespace ConsoleUI
 
             do
             {
-                Console.WriteLine(Player.CurrentRoom.Description);
+                Console.WriteLine(CurrentPlayer.CurrentRoom.Name);
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
                 PlayerMovement.GetMovement(userInput);

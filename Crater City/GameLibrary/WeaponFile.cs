@@ -12,8 +12,8 @@ namespace GameLibrary
         public static List<Weapon> GetWeapons()
         {
             // Local variables
-            string id = null;
-            string description = null;
+            int id = 0;
+            string name = null;
             string type = null;
             int damage = 0;
 
@@ -27,10 +27,10 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Weapon newWeapon = new Weapon(id, description, type, damage);
+                    Weapon newWeapon = new Weapon(id, name, type, damage);
 
-                    newWeapon.ID = splitter[0];
-                    newWeapon.Description = splitter[1];
+                    newWeapon.ID = int.Parse(splitter[0]);
+                    newWeapon.Name = splitter[1];
                     newWeapon.Type = splitter[2];
                     newWeapon.Damage = int.Parse(splitter[3]);
 

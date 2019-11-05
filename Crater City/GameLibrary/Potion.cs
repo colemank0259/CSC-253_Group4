@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Potion
+    public class Potion : GameObject
     {
         //List<string> potions = new List<string>() {"Health", "Ability Boost"};
 
-        public string ID { get; set; }
-        public string Description { get; set; }
+        //public string ID { get; set; }
+        //public string Description { get; set; }
 
-        public Potion(string id, string description)
+        public Potion(int id, string name) : base(id, name)
         {
             ID = id;
-            Description = description;
+            Name = name;
         }
     }
 }

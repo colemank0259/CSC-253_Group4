@@ -12,7 +12,7 @@ namespace GameLibrary
         public static List<Treasure> GetTreasures()
         {
             // Local variables
-            string id = null;
+            int id = 0;
             string description = null;
 
             try
@@ -27,8 +27,8 @@ namespace GameLibrary
 
                     Treasure newTreasure = new Treasure(id, description);
 
-                    newTreasure.ID = splitter[0];
-                    newTreasure.Description = splitter[1];
+                    newTreasure.ID = int.Parse(splitter[0]);
+                    newTreasure.Name = splitter[1];
 
                     // TODO add a currency to the game (i.e. gold, credits, dollars, etc.). Players could use the currency to buy better weapons or armor.
 

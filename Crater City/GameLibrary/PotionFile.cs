@@ -12,8 +12,8 @@ namespace GameLibrary
         public static List<Potion> GetPotions()
         {
             // Local variables
-            string id = null;
-            string description = null;
+            int id = 0;
+            string name = null;
 
             try
             {
@@ -25,10 +25,10 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Potion newPotion = new Potion(id, description);
+                    Potion newPotion = new Potion(id, name);
 
-                    newPotion.ID = splitter[0];
-                    newPotion.Description = splitter[1];
+                    newPotion.ID = int.Parse(splitter[0]);
+                    newPotion.Name = splitter[1];
 
                     // TODO add more details to potions (i.e. HP gained, damage buff gained, duration of damage buff, etc.). Add to both the file and the class.
 
