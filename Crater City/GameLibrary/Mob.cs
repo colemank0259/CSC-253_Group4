@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Mob : GameObject
+    public class Mob : LivingBeing
     {
         // TODO copy Mobs and add position and movement; may need addtional class
 

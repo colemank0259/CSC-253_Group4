@@ -30,7 +30,7 @@ namespace GameLibrary
                     newItem.ID = int.Parse(splitter[0]);
                     newItem.Name = splitter[1];
 
-                    // TODO may use Item.cs a parent for more specific classes and files (i.e. keys, disguises, etc.), replacing the current Items.csv file in the near future.
+                    // TODO Use Item.cs a parent for more specific classes and files (i.e. keys, disguises, etc.), replacing the current Items.csv file.
 
                     myItems.Add(newItem);
                 }

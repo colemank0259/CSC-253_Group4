@@ -47,6 +47,7 @@
     <Compile Include="GameAttributes.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemFile.cs" />
+    <Compile Include="LivingBeing.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="MobFile.cs" />
     <Compile Include="Player.cs" />

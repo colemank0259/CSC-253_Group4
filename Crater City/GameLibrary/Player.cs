@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Player : GameObject
+    public class Player : LivingBeing
     {
         //public int PlayerID { get; set; }
         //public string PlayerName { get; set; }
