@@ -58,7 +58,7 @@
     <Compile Include="Potion.cs" />
     <Compile Include="PotionFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Random.cs" />
+    <Compile Include="RandomNumber.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RoomFile.cs" />
     <Compile Include="StandardMessages.cs" />

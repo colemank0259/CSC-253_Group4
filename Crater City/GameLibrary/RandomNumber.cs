@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class Random
+    public class RandomNumber
     {
         private static Random _generator = new Random();
 
