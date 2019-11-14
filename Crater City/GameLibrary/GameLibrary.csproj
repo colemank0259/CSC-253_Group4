@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Combat.cs" />
-    <Compile Include="CurrentMob.cs" />
     <Compile Include="CurrentPlayer.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameAttributes.cs" />

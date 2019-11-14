@@ -8,10 +8,20 @@ namespace GameLibrary
 {
     public enum PlayerClass
     {
-        Hero,
+        // List subject to change; used as basis for weapon types
 
-        Villain,
+        Gadgeteer, // will use blaster or gauntlets
 
-        Assassin,
+        Speedster,
+
+        Assassin, // will use gun weapon
+
+        Wizard,
+
+        Ninja, // will use ninja stars or knife weapon
+
+        Tank, // will use super strength as weapon
+
+
     }
 }

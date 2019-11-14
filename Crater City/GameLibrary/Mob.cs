@@ -24,5 +24,12 @@ namespace GameLibrary
             Speed = speed;
             HP = hp;
         }
+
+        public Mob(Mob copy) : base(copy.ID, copy.Name)
+        {
+            Strength = copy.Strength;
+            Speed = copy.Speed;
+            HP = copy.HP;
+        }
     }
 }
