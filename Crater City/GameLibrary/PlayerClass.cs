@@ -10,17 +10,21 @@ namespace GameLibrary
     {
         // List subject to change; used as basis for weapon types
 
-        Gadgeteer, // will use blaster or gauntlets
+        Gadgeteer, // will use blaster
 
-        Speedster,
+        Speedster, // will use super speed
 
         Assassin, // will use gun weapon
 
-        Wizard,
+        Wizard, // will use magic wand
 
-        Ninja, // will use ninja stars or knife weapon
+        Ninja, // will use ninja stars (shuriken)
 
         Tank, // will use super strength as weapon
+
+        Banshee, // will use Sonic Scream (compare to Black Canary)
+
+        Samurai, // will use Katana (this list is getting weird LOL)
 
 
     }
