@@ -19,8 +19,21 @@ namespace GameLibrary
             PlayerHP = playerHP;
             PlayerXP = playerXP;
             CurrentRoom = GameAttributes.rooms[0];
+            CurrentWeapon = GameAttributes.weapons[0];
         }
 
+        public static Weapon GetCurrentWeapon(CurrentPlayer currentPlayer)
+        {
+            foreach (Weapon weapon in GameAttributes.weapons)
+            {
+                if (weapon.Type.ToLower() == currentPlayer.PlayerClass.ToLower())
+                {
+                     CurrentWeapon = weapon;
+                }
+            }
+
+            return CurrentWeapon;
+        }
 
     }
 }

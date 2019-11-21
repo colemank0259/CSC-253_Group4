@@ -71,6 +71,9 @@ namespace ConsoleUI
                     // Consume the next line for appearance
                     Console.WriteLine("");
 
+                    // Get player's weapon
+                    CurrentPlayer.GetCurrentWeapon(myPlayer);
+
                     // Get player movement
                     GetPlayerMovement();
 

@@ -71,12 +71,25 @@ namespace GameLibrary
             Console.WriteLine("1. Techie");
             Console.WriteLine("2. Metahuman");
             Console.WriteLine("3. Magic");
-            Console.WriteLine("Enter a number to choose your character type:");
+            Console.Write("Enter a number to choose your character type:");
         }
 
         public static void PromptPlayerClass()
         {
-            Console.WriteLine("Enter a number to choose your character class:");
+            //Console.WriteLine("1. Gadgeteer");
+            //Console.WriteLine("2. Speedster");
+            //Console.WriteLine("3. Assassin");
+            //Console.WriteLine("4. Wizard");
+            //Console.WriteLine("5. Ninja");
+            //Console.WriteLine("6. Tank");
+            //Console.WriteLine("7. Banshee");
+            //Console.WriteLine("8. Samurai");
+
+            for (PlayerClass classCount = PlayerClass.Gadgeteer; classCount <= PlayerClass.Samurai; classCount++)
+            {
+                Console.WriteLine($"{classCount + 1}. {classCount.ToString()}");
+            }
+            Console.Write("Enter a number to choose your character class:");
         }
     }
 }

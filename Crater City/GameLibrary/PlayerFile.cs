@@ -63,12 +63,13 @@ namespace GameLibrary
                 StandardMessages.PromptPlayerPassword();
                 myPlayer.PlayerPassword = Console.ReadLine();
                 // TODO validate password
-                StandardMessages.PromptPlayerClass();
-                myPlayer.PlayerClass = Console.ReadLine();
-                // TODO validate class with  enumerators
                 StandardMessages.PromptPlayerRace();
                 myPlayer.PlayerRace = Console.ReadLine();
                 // TODO validate race with  enumerators
+                StandardMessages.PromptPlayerClass();
+                myPlayer.PlayerClass = GetNewPlayerClass(Console.ReadLine());
+                // TODO validate class with  enumerators
+                
 
                 lines.Add($"{myPlayer.ID},{myPlayer.Name},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
 
@@ -78,6 +79,42 @@ namespace GameLibrary
             {
                 Console.WriteLine("Data Write Error from PlayerFile.cs", ex);
                 return null;
+            }
+        }
+
+        public static string GetNewPlayerClass(string input)
+        {
+            string playerClass;
+
+            switch (input)
+            {
+                case "1":
+                    playerClass = PlayerClass.Gadgeteer.ToString();
+                    return playerClass;
+                case "2":
+                    playerClass = PlayerClass.Speedster.ToString();
+                    return playerClass;
+                case "3":
+                    playerClass = PlayerClass.Assassin.ToString();
+                    return playerClass;
+                case "4":
+                    playerClass = PlayerClass.Wizard.ToString();
+                    return playerClass;
+                case "5":
+                    playerClass = PlayerClass.Ninja.ToString();
+                    return playerClass;
+                case "6":
+                    playerClass = PlayerClass.Tank.ToString();
+                    return playerClass;
+                case "7":
+                    playerClass = PlayerClass.Banshee.ToString();
+                    return playerClass;
+                case "8":
+                    playerClass = PlayerClass.Samurai.ToString();
+                    return playerClass;
+                default:
+                    Console.WriteLine("ERROR: You must enter 1 or 2 to select an option.");
+                    return null;
             }
         }
 
@@ -96,8 +133,9 @@ namespace GameLibrary
                     newPlayer.ID = int.Parse(splitter[0]);
                     newPlayer.Name = splitter[1];
                     newPlayer.PlayerPassword = splitter[2];
-                    newPlayer.PlayerClass = splitter[3];
-                    newPlayer.PlayerRace = splitter[4];
+                    newPlayer.PlayerRace = splitter[3];
+                    newPlayer.PlayerClass = splitter[4];
+                    
 
                     myPlayers.Add(newPlayer);
                 }
