@@ -58,12 +58,12 @@ namespace GameLibrary
 
         public static void PromptPlayerName()
         {
-            Console.WriteLine("Enter your name: ");
+            Console.Write("Enter your name: ");
         }
 
         public static void PromptPlayerPassword()
         {
-            Console.WriteLine("Enter your password: ");
+            Console.Write("Enter your password: ");
         }
 
         public static void PromptPlayerRace()
