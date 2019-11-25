@@ -16,9 +16,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Player newPlayer = new Player(0, null, null, null, null);
+            CurrentPlayer newPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
             CurrentPlayer myPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
-            List<Player> myPlayers = new List<Player>();
+            List<CurrentPlayer> myPlayers = new List<CurrentPlayer>();
             bool exit = false;
 
 
@@ -44,6 +44,7 @@ namespace ConsoleUI
                     myPlayer = PlayerFile.GetPlayer(newPlayer, myPlayers);
 
                     // Display player information
+                    Console.WriteLine($"Player ID: {myPlayer.ID}");
                     Console.WriteLine($"Player Name: {myPlayer.Name}");
                     Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
                     Console.WriteLine($"Player Class: {myPlayer.PlayerClass}");

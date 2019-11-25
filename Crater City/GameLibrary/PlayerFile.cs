@@ -9,7 +9,7 @@ namespace GameLibrary
 {
     public class PlayerFile
     {
-        public static CurrentPlayer GetPlayer(Player newPlayer, List<Player> myPlayers)
+        public static CurrentPlayer GetPlayer(CurrentPlayer newPlayer, List<CurrentPlayer> myPlayers)
         {
             // Local variables
             string inputString;
@@ -40,10 +40,10 @@ namespace GameLibrary
                     return null;
             }
         }
-        public static Player CreatePlayerFile(Player myPlayer)
+        public static CurrentPlayer CreatePlayerFile(CurrentPlayer myPlayer)
         {
             // Local variables
-            int playerCount = 0;
+            int playerCount = -1;
 
             try
             {
@@ -58,20 +58,22 @@ namespace GameLibrary
                 }
 
                 myPlayer.ID = playerCount + 1;
-                StandardMessages.PromptPlayerName();
-                myPlayer.Name = Console.ReadLine();
-                StandardMessages.PromptPlayerPassword();
-                myPlayer.PlayerPassword = Console.ReadLine();
+                
+                myPlayer.Name = StandardMessages.PromptPlayerName();
+                
+                myPlayer.PlayerPassword = StandardMessages.PromptPlayerPassword();
                 // TODO validate password
-                StandardMessages.PromptPlayerRace();
-                myPlayer.PlayerRace = Console.ReadLine();
+                
+                myPlayer.PlayerRace = GetNewPlayerRace(StandardMessages.PromptPlayerRace());
                 // TODO validate race with  enumerators
-                StandardMessages.PromptPlayerClass();
-                myPlayer.PlayerClass = GetNewPlayerClass(Console.ReadLine());
+                
+                myPlayer.PlayerClass = GetNewPlayerClass(StandardMessages.PromptPlayerClass());
                 // TODO validate class with  enumerators
                 
 
                 lines.Add($"{myPlayer.ID},{myPlayer.Name},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
+
+                File.WriteAllLines("Players.csv", lines);
 
                 return myPlayer;
             }
@@ -79,6 +81,27 @@ namespace GameLibrary
             {
                 Console.WriteLine("Data Write Error from PlayerFile.cs", ex);
                 return null;
+            }
+        }
+
+        public static string GetNewPlayerRace(string input)
+        {
+            string playerClass;
+
+            switch (input)
+            {
+                case "1":
+                    playerClass = PlayerRace.Techie.ToString();
+                    return playerClass;
+                case "2":
+                    playerClass = PlayerRace.Metahuman.ToString();
+                    return playerClass;
+                case "3":
+                    playerClass = PlayerRace.Magic.ToString();
+                    return playerClass;
+                default:
+                    Console.WriteLine("ERROR: You must select one of the listed player races.");
+                    return null;
             }
         }
 
@@ -113,19 +136,19 @@ namespace GameLibrary
                     playerClass = PlayerClass.Samurai.ToString();
                     return playerClass;
                 default:
-                    Console.WriteLine("ERROR: You must enter 1 or 2 to select an option.");
+                    Console.WriteLine("ERROR: You must select one of the listed player job classes.");
                     return null;
             }
         }
 
-        public static List<Player> GetPlayers(Player newPlayer)
+        public static List<CurrentPlayer> GetPlayers(CurrentPlayer newPlayer)
         {
             try
             {
-                List<Player> myPlayers = new List<Player>();
+                List<CurrentPlayer> myPlayers = new List<CurrentPlayer>();
 
                 List<string> lines = File.ReadAllLines("Players.csv").ToList();
-
+                lines.RemoveAt(0);
                 foreach (var line in lines)
                 {
                     string[] splitter = line.Split(',');
@@ -133,9 +156,9 @@ namespace GameLibrary
                     newPlayer.ID = int.Parse(splitter[0]);
                     newPlayer.Name = splitter[1];
                     newPlayer.PlayerPassword = splitter[2];
-                    newPlayer.PlayerRace = splitter[3];
-                    newPlayer.PlayerClass = splitter[4];
-                    
+                    newPlayer.PlayerClass = splitter[3];
+                    newPlayer.PlayerRace = splitter[4];
+
 
                     myPlayers.Add(newPlayer);
                 }
@@ -149,7 +172,7 @@ namespace GameLibrary
             }
         }
 
-        public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
+        public static CurrentPlayer GetReturningPlayer(CurrentPlayer myPlayer, List<CurrentPlayer> myPlayers)
         {
             // Local variables
             string inputString;
@@ -160,7 +183,7 @@ namespace GameLibrary
             StandardMessages.PromptReturningPlayerSignIn();
             inputString = Console.ReadLine();
 
-            foreach (Player player in myPlayers)
+            foreach (CurrentPlayer player in myPlayers)
             {
                 if (inputString.ToLower() == player.Name.ToLower())
                 {

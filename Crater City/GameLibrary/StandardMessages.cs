@@ -43,7 +43,7 @@ namespace GameLibrary
         {
             Console.WriteLine("1. Create new player profile");
             Console.WriteLine("2. Load player profile");
-            Console.Write("Enter a number to select:");
+            Console.Write("Enter a number to select: ");
         }
 
         public static void PromptNewPlayerSignUp()
@@ -51,30 +51,38 @@ namespace GameLibrary
             // TODO Write prompt to create new player profile
         }
 
-        public static void PromptReturningPlayerSignIn()
+        public static string PromptReturningPlayerSignIn()
         {
-            Console.Write("Enter your existing Player Name:");
+            Console.Write("Enter your existing Player Name: ");
+
+            return Console.ReadLine();
         }
 
-        public static void PromptPlayerName()
+        public static string PromptPlayerName()
         {
             Console.Write("Enter your name: ");
+
+            return Console.ReadLine();
         }
 
-        public static void PromptPlayerPassword()
+        public static string PromptPlayerPassword()
         {
             Console.Write("Enter your password: ");
+
+            return Console.ReadLine();
         }
 
-        public static void PromptPlayerRace()
+        public static string PromptPlayerRace()
         {
             Console.WriteLine("1. Techie");
             Console.WriteLine("2. Metahuman");
             Console.WriteLine("3. Magic");
-            Console.Write("Enter a number to choose your character type:");
+            Console.Write("Enter a number to choose your character type: ");
+
+            return Console.ReadLine();
         }
 
-        public static void PromptPlayerClass()
+        public static string PromptPlayerClass()
         {
             //Console.WriteLine("1. Gadgeteer");
             //Console.WriteLine("2. Speedster");
@@ -85,11 +93,17 @@ namespace GameLibrary
             //Console.WriteLine("7. Banshee");
             //Console.WriteLine("8. Samurai");
 
+            int index = 0;
+
             for (PlayerClass classCount = PlayerClass.Gadgeteer; classCount <= PlayerClass.Samurai; classCount++)
             {
-                Console.WriteLine($"{classCount + 1}. {classCount.ToString()}");
+                index++;
+
+                Console.WriteLine($"{index}. {classCount.ToString()}");
             }
-            Console.Write("Enter a number to choose your character class:");
+            Console.Write("Enter a number to choose your character class: ");
+
+            return Console.ReadLine();
         }
     }
 }

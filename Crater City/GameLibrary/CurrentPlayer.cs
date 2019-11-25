@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-    public class CurrentPlayer : Player
+    public class CurrentPlayer: GameObject
     {
+        public string PlayerPassword { get; set; }
+        public string PlayerClass { get; set; }
+        public string PlayerRace { get; set; }
         public int PlayerHP { get; set; }
         public int PlayerXP { get; set; }
         public static Room CurrentRoom { get; set; }
         public static Weapon CurrentWeapon { get; set; }
 
-        public CurrentPlayer(int playerID, string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerXP) 
-            : base(playerID, playerName, playerPassword, playerClass, playerRace)
+        public CurrentPlayer(int playerID, string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerXP)
+            : base(playerID, playerName)
         {
+            PlayerPassword = playerPassword;
+            PlayerClass = playerClass;
+            PlayerRace = playerRace;
             PlayerHP = playerHP;
             PlayerXP = playerXP;
             CurrentRoom = GameAttributes.rooms[0];
