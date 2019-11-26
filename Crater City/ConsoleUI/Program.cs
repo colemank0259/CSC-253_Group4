@@ -45,13 +45,25 @@ namespace ConsoleUI
 
                     // Get player's weapon
                     Player.CurrentWeapon = Player.GetCurrentWeapon(myPlayer);
-                    
+
+                    // Get player's default damage
+                    myPlayer.Damage = Player.GetPlayerDamage(myPlayer);
+
+                    // Get player's default AC
+                    myPlayer.AC = Player.GetPlayerAC(myPlayer);
+
+                    // Get player's default HP
+                    myPlayer.HP = Player.GetPlayerHP(myPlayer);
+
 
                     // Display player information
                     Console.WriteLine($"Player ID: {myPlayer.ID}");
                     Console.WriteLine($"Player Name: {myPlayer.Name}");
                     Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
                     Console.WriteLine($"Player Class: {myPlayer.PlayerClass}");
+                    Console.WriteLine($"Player Damage: {myPlayer.Damage}");
+                    Console.WriteLine($"Player AC: {myPlayer.AC}");
+                    Console.WriteLine($"Player HP: {myPlayer.HP}");
                     Console.WriteLine($"Player Weapon: {Player.CurrentWeapon.Name}");
 
                     // Consume the next line for appearance
