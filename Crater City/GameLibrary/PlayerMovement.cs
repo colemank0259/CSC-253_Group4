@@ -12,9 +12,9 @@ namespace GameLibrary
         {
             if (input.ToLower() == "north")
             {
-                if (Player.CurrentRoom.North != -1)
+                if (LivingBeing.CurrentRoom.North != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.North];
+                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.North];
                 }
                 else
                 {
@@ -23,9 +23,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "south")
             {
-                if (Player.CurrentRoom.South != -1)
+                if (LivingBeing.CurrentRoom.South != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.South];
+                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.South];
                 }
                 else
                 {
@@ -34,9 +34,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "east")
             {
-                if (Player.CurrentRoom.East != -1)
+                if (LivingBeing.CurrentRoom.East != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.East];
+                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.East];
                 }
                 else
                 {
@@ -45,9 +45,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "west")
             {
-                if (Player.CurrentRoom.West != -1)
+                if (LivingBeing.CurrentRoom.West != -1)
                 {
-                    Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.West];
+                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.West];
                 }
                 else
                 {
@@ -58,6 +58,55 @@ namespace GameLibrary
             {
                 Console.WriteLine("Error: You must enter north, south, east, or west.");
             }
+
+            //if (input.ToLower() == "north")
+            //{
+            //    if (Player.CurrentRoom.North != -1)
+            //    {
+            //        Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.North];
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("You can't go that way. Choose another direction.");
+            //    }
+            //}
+            //else if (input.ToLower() == "south")
+            //{
+            //    if (Player.CurrentRoom.South != -1)
+            //    {
+            //        Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.South];
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("You can't go that way. Choose another direction.");
+            //    }
+            //}
+            //else if (input.ToLower() == "east")
+            //{
+            //    if (Player.CurrentRoom.East != -1)
+            //    {
+            //        Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.East];
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("You can't go that way. Choose another direction.");
+            //    }
+            //}
+            //else if (input.ToLower() == "west")
+            //{
+            //    if (Player.CurrentRoom.West != -1)
+            //    {
+            //        Player.CurrentRoom = GameAttributes.rooms[Player.CurrentRoom.West];
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("You can't go that way. Choose another direction.");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Error: You must enter north, south, east, or west.");
+            //}
         }
     }
 }

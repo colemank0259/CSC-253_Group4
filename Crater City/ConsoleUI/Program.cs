@@ -17,7 +17,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //Player newPlayer = new Player(0, null, null, null, null, 0, 0);
-            Player myPlayer = new Player(0, null, null, null, null, 0, 0);
+            Player myPlayer = new Player(0, null, 0, 0, 0, null, null, null, 0, 0);
             List<Player> myPlayers = new List<Player>();
             bool exit = false;
 

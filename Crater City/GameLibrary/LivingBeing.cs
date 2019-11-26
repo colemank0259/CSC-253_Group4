@@ -12,6 +12,8 @@ namespace GameLibrary
         public int AC { get; set; }
         public int HP { get; set; }
 
+        public static Room CurrentRoom { get; set; }
+
         public LivingBeing(int id, string name, int damage, int ac, int hp) : base (id, name)
         {
             Damage = damage;
