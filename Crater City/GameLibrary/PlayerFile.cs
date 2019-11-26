@@ -65,10 +65,8 @@ namespace GameLibrary
                 // TODO validate password
                 
                 myPlayer.PlayerRace = GetNewPlayerRace(StandardMessages.PromptPlayerRace());
-                // TODO validate race with  enumerators
                 
                 myPlayer.PlayerClass = GetNewPlayerClass(StandardMessages.PromptPlayerClass());
-                // TODO validate class with  enumerators
                 
 
                 lines.Add($"{myPlayer.ID},{myPlayer.Name},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");

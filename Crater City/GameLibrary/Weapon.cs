@@ -8,8 +8,6 @@ namespace GameLibrary
 {
     public class Weapon : GameObject
     {
-        //List<string> weapons = new List<string>() {"Energy Blaster", "Power Gauntlets", "Sonic Cannon", "Pulse Blade"};
-
         //public string ID { get; set; }
         //public string Description { get; set; }
         public string Type { get; set; }
