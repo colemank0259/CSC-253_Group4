@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Combat.cs" />
-    <Compile Include="CurrentPlayer.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameAttributes.cs" />
     <Compile Include="Item.cs" />
@@ -50,7 +50,6 @@
     <Compile Include="LivingBeing.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="MobFile.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="PlayerClass.cs" />
     <Compile Include="PlayerFile.cs" />
     <Compile Include="PlayerMovement.cs" />

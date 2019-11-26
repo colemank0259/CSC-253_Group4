@@ -9,11 +9,11 @@ namespace GameLibrary
 {
     public class PlayerFile
     {
-        public static CurrentPlayer GetPlayer(CurrentPlayer newPlayer, List<CurrentPlayer> myPlayers)
+        public static Player GetPlayer(Player newPlayer, List<Player> myPlayers)
         {
             // Local variables
             string inputString;
-            CurrentPlayer myPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
+            Player myPlayer = new Player(0, null, null, null, null, 0, 0);
 
             StandardMessages.PromptPlayerSignIn();
             inputString = Console.ReadLine();
@@ -40,7 +40,7 @@ namespace GameLibrary
                     return null;
             }
         }
-        public static CurrentPlayer CreatePlayerFile(CurrentPlayer myPlayer)
+        public static Player CreatePlayerFile(Player myPlayer)
         {
             // Local variables
             int playerCount = -1;
@@ -139,11 +139,11 @@ namespace GameLibrary
             }
         }
 
-        public static List<CurrentPlayer> GetPlayers(CurrentPlayer newPlayer)
+        public static List<Player> GetPlayers(Player newPlayer)
         {
             try
             {
-                List<CurrentPlayer> myPlayers = new List<CurrentPlayer>();
+                List<Player> myPlayers = new List<Player>();
 
                 List<string> lines = File.ReadAllLines("Players.csv").ToList();
                 lines.RemoveAt(0);
@@ -170,7 +170,7 @@ namespace GameLibrary
             }
         }
 
-        public static CurrentPlayer GetReturningPlayer(CurrentPlayer myPlayer, List<CurrentPlayer> myPlayers)
+        public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
             // Local variables
             string inputString;
@@ -181,7 +181,7 @@ namespace GameLibrary
             StandardMessages.PromptReturningPlayerSignIn();
             inputString = Console.ReadLine();
 
-            foreach (CurrentPlayer player in myPlayers)
+            foreach (Player player in myPlayers)
             {
                 if (inputString.ToLower() == player.Name.ToLower())
                 {

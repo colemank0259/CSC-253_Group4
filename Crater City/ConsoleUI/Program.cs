@@ -16,9 +16,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CurrentPlayer newPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
-            CurrentPlayer myPlayer = new CurrentPlayer(0, null, null, null, null, 0, 0);
-            List<CurrentPlayer> myPlayers = new List<CurrentPlayer>();
+            //Player newPlayer = new Player(0, null, null, null, null, 0, 0);
+            Player myPlayer = new Player(0, null, null, null, null, 0, 0);
+            List<Player> myPlayers = new List<Player>();
             bool exit = false;
 
 
@@ -41,13 +41,18 @@ namespace ConsoleUI
                     Console.WriteLine("");
 
                     // Get player profile
-                    myPlayer = PlayerFile.GetPlayer(newPlayer, myPlayers);
+                    myPlayer = PlayerFile.GetPlayer(myPlayer, myPlayers);
+
+                    // Get player's weapon
+                    Player.CurrentWeapon = Player.GetCurrentWeapon(myPlayer);
+                    
 
                     // Display player information
                     Console.WriteLine($"Player ID: {myPlayer.ID}");
                     Console.WriteLine($"Player Name: {myPlayer.Name}");
                     Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
                     Console.WriteLine($"Player Class: {myPlayer.PlayerClass}");
+                    Console.WriteLine($"Player Weapon: {Player.CurrentWeapon.Name}");
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
@@ -66,14 +71,13 @@ namespace ConsoleUI
                     Console.WriteLine("Weapons:");
                     foreach (Weapon weapon in GameAttributes.weapons)
                     {
-                        Console.WriteLine($"{weapon.Name}");
+                        Console.WriteLine($"{weapon.Type} - {weapon.Name}");
                     }
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
 
-                    // Get player's weapon
-                    CurrentPlayer.GetCurrentWeapon(myPlayer);
+                    
 
                     // Get player movement
                     GetPlayerMovement();
@@ -97,7 +101,7 @@ namespace ConsoleUI
 
             do
             {
-                Console.WriteLine(CurrentPlayer.CurrentRoom.Name);
+                Console.WriteLine(Player.CurrentRoom.Name);
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
                 PlayerMovement.GetMovement(userInput);

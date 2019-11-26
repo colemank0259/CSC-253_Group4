@@ -14,8 +14,8 @@ namespace GameLibrary
             // Local variables
             int id = 0;
             string name = null;
-            int strength = 0;
-            int speed = 0;
+            int damage = 0;
+            int ac = 0;
             int hp = 0;
 
             try
@@ -28,12 +28,12 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Mob newMob = new Mob(id, name, strength, speed, hp);
+                    Mob newMob = new Mob(id, name, damage, ac, hp);
 
                     newMob.ID = int.Parse(splitter[0]);
                     newMob.Name = splitter[1];
-                    newMob.Strength = int.Parse(splitter[2]);
-                    newMob.Speed = int.Parse(splitter[3]);
+                    newMob.Damage = int.Parse(splitter[2]);
+                    newMob.AC = int.Parse(splitter[3]);
                     newMob.HP = int.Parse(splitter[4]);
 
                     // TODO copy Mobs and add position and movement; may need addtional class

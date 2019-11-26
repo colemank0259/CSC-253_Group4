@@ -8,10 +8,17 @@ namespace GameLibrary
 {
     public class LivingBeing : GameObject
     {
-        public LivingBeing(int id, string name) : base (id, name)
+        public int Damage { get; set; }
+        public int AC { get; set; }
+        public int HP { get; set; }
+
+        public LivingBeing(int id, string name, int damage, int ac, int hp) : base (id, name)
         {
-            ID = id;
-            Name = name;
+            Damage = damage;
+
+            AC = ac;
+
+            HP = hp;
         }
     }
 }
