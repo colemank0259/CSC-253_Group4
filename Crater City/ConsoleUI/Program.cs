@@ -16,9 +16,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //Player newPlayer = new Player(0, null, null, null, null, 0, 0);
             Player myPlayer = new Player(0, null, 0, 0, 0, null, null, null, 0, 0);
             List<Player> myPlayers = new List<Player>();
+            Mob currentMob = new Mob(0, null, 0, 0, 0);
             bool exit = false;
 
 
@@ -107,7 +107,7 @@ namespace ConsoleUI
             } while (exit == false);
         }
 
-        static void GetPlayerMovement()
+        static void GetPlayerMovement(Player myPlayer, Mob currentMob)
         {
             bool exit = false;
 
@@ -118,6 +118,30 @@ namespace ConsoleUI
                 string userInput = Console.ReadLine();
                 PlayerMovement.GetMovement(userInput);
                 Console.ReadLine();
+
+                if (Player.CurrentRoom == Mob.CurrentRoom)
+                {
+                    bool fight = true;
+
+                    do
+                    {
+                        if (myPlayer.HP <= 0)
+                        {
+                            Console.WriteLine("You are dead.");
+                            fight = false;
+                            exit = true;
+                        }
+
+                        if (currentMob.HP <= 0)
+                        {
+                            Console.WriteLine($"{currentMob.Name} is dead.");
+                            fight = false;
+                        }
+
+                    } while (fight == true);
+
+                }
+
             } while (exit == false);
 
             Console.ReadLine();

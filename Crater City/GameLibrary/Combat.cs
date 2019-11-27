@@ -16,5 +16,44 @@ namespace GameLibrary
 
             return mob;
         }
+
+        public 
+
+        public static Mob PerformPlayerAttack(Player myPlayer, Mob currentMob)
+        {
+            PerformAttack(myPlayer, currentMob);
+
+            return currentMob;
+        }
+
+        public static Player PerformMobAttack(Player myPlayer, Mob currentMob)
+        {
+            PerformAttack(currentMob, myPlayer);
+
+            return myPlayer;
+        }
+
+        public static LivingBeing PerformAttack(LivingBeing attacker, LivingBeing enemy)
+        {
+            // Local variable
+            int diceRoll = RandomNumber.NumberBetween(1, 100);
+
+            if (diceRoll > enemy.AC)
+            {
+                enemy.HP -= attacker.Damage;
+
+                Console.WriteLine($"{attacker} has hit {enemy}.");
+                Console.WriteLine($"{enemy}'s HP is {enemy.HP}.");
+            }
+            else
+            {
+                Console.WriteLine($"{attacker} has hit {enemy}.");
+                Console.WriteLine($"{enemy}'s HP is {enemy.HP}.");
+            }
+
+
+            return enemy;
+
+        }
     }
 }

@@ -27,9 +27,10 @@ namespace GameLibrary
 
         public Mob(Mob copy) : base(copy.ID, copy.Name, copy.Damage, copy.AC, copy.HP)
         {
-           //Damage = copy.Damage;
-           // AC = copy.AC;
-           // HP = copy.HP;
+            CurrentRoom = GameAttributes.rooms[RandomNumber.NumberBetween(0,6)];
+            //Damage = copy.Damage;
+            // AC = copy.AC;
+            // HP = copy.HP;
         }
     }
 }

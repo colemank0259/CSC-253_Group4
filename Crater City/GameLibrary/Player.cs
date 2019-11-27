@@ -100,35 +100,34 @@ namespace GameLibrary
 
         public static int GetPlayerAC(Player myPlayer)
         {
-            // TODO: rename "damage" variable to ac to avoid confusion
-            int damage;
+            int ac;
 
             switch (myPlayer.PlayerClass)
             {
                 case "Gadgeteer":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Speedster":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Assassin":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Wizard":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Ninja":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Tank":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Banshee":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 case "Samurai":
-                    damage = 50;
-                    return damage;
+                    ac = 50;
+                    return ac;
                 default:
                     Console.WriteLine("ERROR: Invalid Player Job Class");
                     return 0;
@@ -137,36 +136,34 @@ namespace GameLibrary
 
         public static int GetPlayerHP(Player myPlayer)
         {
-            // TODO: rename "damage" variable to hp to avoid confusion
-
-            int damage;
+            int hp;
 
             switch (myPlayer.PlayerClass)
             {
                 case "Gadgeteer":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Speedster":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Assassin":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Wizard":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Ninja":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Tank":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Banshee":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 case "Samurai":
-                    damage = 50;
-                    return damage;
+                    hp = 50;
+                    return hp;
                 default:
                     Console.WriteLine("ERROR: Invalid Player Job Class");
                     return 0;
