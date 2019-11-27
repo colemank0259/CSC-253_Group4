@@ -10,14 +10,12 @@ namespace GameLibrary
     {
         public static List<Mob> CurrentMobs = GameAttributes.mobs;
 
-        public static Mob GetCurrentMob(List<Mob> mobs)
+        public static Mob GetCurrentMob(Mob mob, List<Mob> mobs)
         {
-            Mob mob = mobs[RandomNumber.NumberBetween(0, 4)];
+            mob = mobs[RandomNumber.NumberBetween(0, 4)];
 
             return mob;
         }
-
-        public 
 
         public static Mob PerformPlayerAttack(Player myPlayer, Mob currentMob)
         {
@@ -42,13 +40,13 @@ namespace GameLibrary
             {
                 enemy.HP -= attacker.Damage;
 
-                Console.WriteLine($"{attacker} has hit {enemy}.");
-                Console.WriteLine($"{enemy}'s HP is {enemy.HP}.");
+                Console.WriteLine($"{attacker.Name} has hit {enemy.Name}.");
+                Console.WriteLine($"{enemy.Name}'s HP is {enemy.HP}.");
             }
             else
             {
-                Console.WriteLine($"{attacker} has hit {enemy}.");
-                Console.WriteLine($"{enemy}'s HP is {enemy.HP}.");
+                Console.WriteLine($"{attacker.Name} has missed {enemy.Name}.");
+                Console.WriteLine($"{enemy.Name}'s HP is {enemy.HP}.");
             }
 
 

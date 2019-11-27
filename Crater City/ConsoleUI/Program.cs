@@ -92,7 +92,7 @@ namespace ConsoleUI
                     
 
                     // Get player movement
-                    GetPlayerMovement();
+                    GetPlayerMovement(myPlayer, currentMob);
 
                 }
                 else if (input == "2")
@@ -109,6 +109,7 @@ namespace ConsoleUI
 
         static void GetPlayerMovement(Player myPlayer, Mob currentMob)
         {
+            currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
             bool exit = false;
 
             do
@@ -123,19 +124,37 @@ namespace ConsoleUI
                 {
                     bool fight = true;
 
+                    Console.WriteLine($"You must fight a {currentMob.Name}!");
+                    Console.WriteLine($"{currentMob.Name}'s HP is {currentMob.HP}.");
+
                     do
                     {
+                        int coinToss = RandomNumber.NumberBetween(1, 2);
+                        switch (coinToss)
+                        {
+                            case 1:
+                                Combat.PerformPlayerAttack(myPlayer, currentMob);
+                                break;
+                            case 2:
+                                Combat.PerformMobAttack(myPlayer, currentMob);
+                                break;
+                        }
+
+                        // Toss the coin again to alternate chances of attacking
+                        coinToss = RandomNumber.NumberBetween(1, 2);
+
                         if (myPlayer.HP <= 0)
                         {
-                            Console.WriteLine("You are dead.");
+                            Console.WriteLine("You are defeated. GAME OVER");
                             fight = false;
                             exit = true;
                         }
 
                         if (currentMob.HP <= 0)
                         {
-                            Console.WriteLine($"{currentMob.Name} is dead.");
+                            Console.WriteLine($"{currentMob.Name} is defeated.");
                             fight = false;
+                            currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
                         }
 
                     } while (fight == true);

@@ -141,28 +141,28 @@ namespace GameLibrary
             switch (myPlayer.PlayerClass)
             {
                 case "Gadgeteer":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Speedster":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Assassin":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Wizard":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Ninja":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Tank":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Banshee":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 case "Samurai":
-                    hp = 50;
+                    hp = 100;
                     return hp;
                 default:
                     Console.WriteLine("ERROR: Invalid Player Job Class");
