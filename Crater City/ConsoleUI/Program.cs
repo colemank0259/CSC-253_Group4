@@ -89,9 +89,10 @@ namespace ConsoleUI
                     // Consume the next line for appearance
                     Console.WriteLine("");
 
-                    
+
 
                     // Get player movement
+                    Console.WriteLine("Enter 'north', 'south', 'east', or 'west' to move between locations.");
                     GetPlayerMovement(myPlayer, currentMob);
 
                 }
@@ -123,6 +124,12 @@ namespace ConsoleUI
                 if (Player.CurrentRoom == Mob.CurrentRoom)
                 {
                     bool fight = true;
+
+                    // Prevent dead Mobs from being reused; remove when you find a better way
+                    while(currentMob.HP <= 0)
+                    {
+                        currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+                    }
 
                     Console.WriteLine($"You must fight a {currentMob.Name}!");
                     Console.WriteLine($"{currentMob.Name}'s HP is {currentMob.HP}.");
