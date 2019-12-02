@@ -17,6 +17,9 @@ namespace GameLibrary
             int damage = 0;
             int ac = 0;
             int hp = 0;
+            int xp = 0;
+
+            // TODO: Update this class and the Mobs.csv with HP stat added
 
             try
             {
@@ -28,7 +31,7 @@ namespace GameLibrary
                 {
                     string[] splitter = line.Split(',');
 
-                    Mob newMob = new Mob(id, name, damage, ac, hp);
+                    Mob newMob = new Mob(id, name, damage, ac, hp, xp);
 
                     newMob.ID = int.Parse(splitter[0]);
                     newMob.Name = splitter[1];

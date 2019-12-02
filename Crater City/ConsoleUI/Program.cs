@@ -16,9 +16,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Player myPlayer = new Player(0, null, 0, 0, 0, null, null, null, 0, 0);
+            Player myPlayer = new Player(0, null, 0, 0, 0, 0,  null, null, null);
             List<Player> myPlayers = new List<Player>();
-            Mob currentMob = new Mob(0, null, 0, 0, 0);
+            Mob currentMob = new Mob(0, null, 0, 0, 0, 0);
             bool exit = false;
 
 
@@ -57,6 +57,7 @@ namespace ConsoleUI
 
 
                     // Display player information
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine($"Player ID: {myPlayer.ID}");
                     Console.WriteLine($"Player Name: {myPlayer.Name}");
                     Console.WriteLine($"Player Type: {myPlayer.PlayerRace}");
@@ -65,6 +66,8 @@ namespace ConsoleUI
                     Console.WriteLine($"Player AC: {myPlayer.AC}");
                     Console.WriteLine($"Player HP: {myPlayer.HP}");
                     Console.WriteLine($"Player Weapon: {Player.CurrentWeapon.Name}");
+                    // Add color for dramatic effect
+                    Console.ForegroundColor = ConsoleColor.Gray;
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
@@ -115,6 +118,9 @@ namespace ConsoleUI
 
             do
             {
+                // Add color for dramatic effect
+                Console.ForegroundColor = ConsoleColor.White;
+
                 Console.WriteLine(Player.CurrentRoom.Name);
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
@@ -152,16 +158,28 @@ namespace ConsoleUI
 
                         if (myPlayer.HP <= 0)
                         {
+                            // Add color for dramatic effect
+                            Console.ForegroundColor = ConsoleColor.Red;
+
                             Console.WriteLine("You are defeated. GAME OVER");
                             fight = false;
                             exit = true;
+
+                            // Return color to normal
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
 
                         if (currentMob.HP <= 0)
                         {
-                            Console.WriteLine($"{currentMob.Name} is defeated.");
+                            // Add color for dramatic effect
+                            Console.ForegroundColor = ConsoleColor.Green;
+
+                            Console.WriteLine($"{currentMob.Name} is defeated. YOU WIN!");
                             fight = false;
                             currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+
+                            // Return color to normal
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
 
                     } while (fight == true);

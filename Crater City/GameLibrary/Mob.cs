@@ -16,7 +16,7 @@ namespace GameLibrary
         //public int AC { get; set; }
         //public int HP { get; set; }
 
-        public Mob(int id, string name, int damage, int ac, int hp) : base(id, name, damage, ac, hp)
+        public Mob(int id, string name, int damage, int ac, int hp, int xp) : base(id, name, damage, ac, hp, xp)
         {
             //ID = id;
             //Description = description;
@@ -25,7 +25,7 @@ namespace GameLibrary
             //HP = hp;
         }
 
-        public Mob(Mob copy) : base(copy.ID, copy.Name, copy.Damage, copy.AC, copy.HP)
+        public Mob(Mob copy) : base(copy.ID, copy.Name, copy.Damage, copy.AC, copy.HP, copy.XP)
         {
             CurrentRoom = GameAttributes.rooms[RandomNumber.NumberBetween(0,6)];
             //Damage = copy.Damage;

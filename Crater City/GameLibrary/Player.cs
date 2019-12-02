@@ -11,19 +11,16 @@ namespace GameLibrary
         public string PlayerPassword { get; set; }
         public string PlayerClass { get; set; }
         public string PlayerRace { get; set; }
-        //public int PlayerHP { get; set; }
-        public int PlayerXP { get; set; }
-        //public static Room CurrentRoom { get; set; }
         public static Weapon CurrentWeapon { get; set; }
 
-        public Player(int playerID, string playerName, int damage, int ac, int hp, string playerPassword, string playerClass, string playerRace, int playerHP, int playerXP)
-            : base(playerID, playerName, damage, ac, hp)
+        public Player(int playerID, string playerName, int damage, int ac, int hp, int xp, string playerPassword, string playerClass, string playerRace)
+            : base(playerID, playerName, damage, ac, hp, xp)
         {
             PlayerPassword = playerPassword;
             PlayerClass = playerClass;
             PlayerRace = playerRace;
-            HP = playerHP;
-            PlayerXP = playerXP;
+            HP = hp;
+            XP = xp;
             CurrentRoom = GameAttributes.rooms[0];
             CurrentWeapon = GameAttributes.weapons[0];
         }
