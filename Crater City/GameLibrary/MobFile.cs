@@ -38,6 +38,7 @@ namespace GameLibrary
                     newMob.Damage = int.Parse(splitter[2]);
                     newMob.AC = int.Parse(splitter[3]);
                     newMob.HP = int.Parse(splitter[4]);
+                    newMob.XP = int.Parse(splitter[5]);
 
                     // TODO copy Mobs and add position and movement; may need addtional class
 

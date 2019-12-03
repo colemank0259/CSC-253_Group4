@@ -1,5 +1,5 @@
-1,Robot,50,50,75
-2,Police Officer,50,50,125
-3,Mutant Dog,50,50,50
-4,Gang Member,50,50,100
-5,Supervillain,50,50,200
+1,Robot,50,50,75,50
+2,Police Officer,50,50,125,100
+3,Mutant Dog,50,50,50,25
+4,Gang Member,50,50,100,75
+5,Supervillain,50,50,200,150

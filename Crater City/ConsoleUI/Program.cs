@@ -66,8 +66,7 @@ namespace ConsoleUI
                     Console.WriteLine($"Player AC: {myPlayer.AC}");
                     Console.WriteLine($"Player HP: {myPlayer.HP}");
                     Console.WriteLine($"Player Weapon: {Player.CurrentWeapon.Name}");
-                    // Add color for dramatic effect
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.White;
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
@@ -91,8 +90,6 @@ namespace ConsoleUI
 
                     // Consume the next line for appearance
                     Console.WriteLine("");
-
-
 
                     // Get player movement
                     Console.WriteLine("Enter 'north', 'south', 'east', or 'west' to move between locations.");
@@ -118,9 +115,6 @@ namespace ConsoleUI
 
             do
             {
-                // Add color for dramatic effect
-                Console.ForegroundColor = ConsoleColor.White;
-
                 Console.WriteLine(Player.CurrentRoom.Name);
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
@@ -175,6 +169,8 @@ namespace ConsoleUI
                             Console.ForegroundColor = ConsoleColor.Green;
 
                             Console.WriteLine($"{currentMob.Name} is defeated. YOU WIN!");
+                            myPlayer.XP += currentMob.XP;
+                            Console.WriteLine($"{myPlayer.Name}'s XP: {myPlayer.XP}");
                             fight = false;
                             currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
 
