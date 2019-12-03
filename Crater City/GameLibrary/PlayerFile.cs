@@ -63,11 +63,18 @@ namespace GameLibrary
                 
                 myPlayer.PlayerPassword = StandardMessages.PromptPlayerPassword();
                 // TODO validate password
+
+                do
+                {
+                    myPlayer.PlayerRace = GetNewPlayerRace(StandardMessages.PromptPlayerRace());
+                } while (myPlayer.PlayerRace == null);
                 
-                myPlayer.PlayerRace = GetNewPlayerRace(StandardMessages.PromptPlayerRace());
-                
-                myPlayer.PlayerClass = GetNewPlayerClass(StandardMessages.PromptPlayerClass());
-                
+
+                do
+                {
+                    myPlayer.PlayerClass = GetNewPlayerClass(StandardMessages.PromptPlayerClass());
+                } while (myPlayer.PlayerClass == null);
+
 
                 lines.Add($"{myPlayer.ID},{myPlayer.Name},{myPlayer.PlayerPassword},{myPlayer.PlayerClass},{myPlayer.PlayerRace}");
 
@@ -85,58 +92,83 @@ namespace GameLibrary
         public static string GetNewPlayerRace(string input)
         {
             string playerClass;
+            bool exit = false;
 
-            switch (input)
+            do
             {
-                case "1":
-                    playerClass = PlayerRace.Techie.ToString();
-                    return playerClass;
-                case "2":
-                    playerClass = PlayerRace.Metahuman.ToString();
-                    return playerClass;
-                case "3":
-                    playerClass = PlayerRace.Magic.ToString();
-                    return playerClass;
-                default:
-                    Console.WriteLine("ERROR: You must select one of the listed player races.");
-                    return null;
-            }
+                switch (input)
+                {
+                    case "1":
+                        playerClass = PlayerRace.Techie.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "2":
+                        playerClass = PlayerRace.Metahuman.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "3":
+                        playerClass = PlayerRace.Magic.ToString();
+                        exit = true;
+                        return playerClass;
+                    default:
+                        Console.WriteLine("ERROR: You must select one of the listed player races.");
+                        exit = false;
+                        return null;
+                }
+            } while (exit == false);
+
+            
         }
 
         public static string GetNewPlayerClass(string input)
         {
             string playerClass;
+            bool exit = false;
 
-            switch (input)
+            do
             {
-                case "1":
-                    playerClass = PlayerClass.Gadgeteer.ToString();
-                    return playerClass;
-                case "2":
-                    playerClass = PlayerClass.Speedster.ToString();
-                    return playerClass;
-                case "3":
-                    playerClass = PlayerClass.Assassin.ToString();
-                    return playerClass;
-                case "4":
-                    playerClass = PlayerClass.Wizard.ToString();
-                    return playerClass;
-                case "5":
-                    playerClass = PlayerClass.Ninja.ToString();
-                    return playerClass;
-                case "6":
-                    playerClass = PlayerClass.Tank.ToString();
-                    return playerClass;
-                case "7":
-                    playerClass = PlayerClass.Banshee.ToString();
-                    return playerClass;
-                case "8":
-                    playerClass = PlayerClass.Samurai.ToString();
-                    return playerClass;
-                default:
-                    Console.WriteLine("ERROR: You must select one of the listed player job classes.");
-                    return null;
-            }
+                switch (input)
+                {
+                    case "1":
+                        playerClass = PlayerClass.Gadgeteer.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "2":
+                        playerClass = PlayerClass.Speedster.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "3":
+                        playerClass = PlayerClass.Assassin.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "4":
+                        playerClass = PlayerClass.Wizard.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "5":
+                        playerClass = PlayerClass.Ninja.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "6":
+                        playerClass = PlayerClass.Tank.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "7":
+                        playerClass = PlayerClass.Banshee.ToString();
+                        exit = true;
+                        return playerClass;
+                    case "8":
+                        playerClass = PlayerClass.Samurai.ToString();
+                        exit = true;
+                        return playerClass;
+                    default:
+                        Console.WriteLine("ERROR: You must select one of the listed player job classes.");
+                        exit = false;
+                        return null;
+                }
+            } while (exit == false);
+
+            
         }
 
         public static List<Player> GetPlayers(Player newPlayer)
@@ -145,20 +177,26 @@ namespace GameLibrary
             {
                 List<Player> myPlayers = new List<Player>();
 
-                List<string> lines = File.ReadAllLines("Players.csv").ToList();
-                lines.RemoveAt(0);
-                foreach (var line in lines)
+                StreamReader reader = File.OpenText("Players.csv");
+                while(!reader.EndOfStream)
                 {
+                    string line = reader.ReadLine();
                     string[] splitter = line.Split(',');
 
-                    newPlayer.ID = int.Parse(splitter[0]);
-                    newPlayer.Name = splitter[1];
-                    newPlayer.PlayerPassword = splitter[2];
-                    newPlayer.PlayerClass = splitter[3];
-                    newPlayer.PlayerRace = splitter[4];
+                    int id = int.Parse(splitter[0]);
+                    string name = splitter[1];
+                    string password = splitter[2];
+                    string playerClass = splitter[3];
+                    string race = splitter[4];
+
+                    //newPlayer.ID = int.Parse(splitter[0]);
+                    //newPlayer.Name = splitter[1];
+                    //newPlayer.PlayerPassword = splitter[2];
+                    //newPlayer.PlayerClass = splitter[3];
+                    //newPlayer.PlayerRace = splitter[4];
 
 
-                    myPlayers.Add(newPlayer);
+                    myPlayers.Add(new Player(id, name, 0, 0, 0, 0, password, playerClass, race));
                 }
 
                 return myPlayers;
@@ -172,17 +210,22 @@ namespace GameLibrary
 
         public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
+            // TODO: Finish GetReturningPlayer
             // Local variables
             string inputString;
-
+            int playerCount = 0;
+            int playerChoice = 0;
             myPlayers = GetPlayers(myPlayer);
 
             // Prompt user to enter an existing Player Name
-            StandardMessages.PromptReturningPlayerSignIn();
-            inputString = Console.ReadLine();
+            inputString = StandardMessages.PromptReturningPlayerSignIn();
 
             foreach (Player player in myPlayers)
             {
+                //Console.ForegroundColor = ConsoleColor.Magenta;
+                //Console.WriteLine($"{player.ID}. {player.Name}");
+                //playerCount++;
+
                 if (inputString.ToLower() == player.Name.ToLower())
                 {
                     StandardMessages.PromptPlayerPassword();
@@ -192,6 +235,19 @@ namespace GameLibrary
                     }
                 }
             }
+
+
+            //do
+            //{
+            //    Console.Write("Enter a number to choose a character profile: ");
+            //    playerChoice = int.Parse(Console.ReadLine());
+            //} while (playerChoice > playerCount || playerChoice <= 0);
+
+            //Console.Write("Enter a number to choose a character profile: ");
+            //playerChoice = int.Parse(Console.ReadLine());
+
+            //myPlayer = myPlayers[(playerChoice - 1)];
+
 
             // TODO finish GetReturningPlayer method
 

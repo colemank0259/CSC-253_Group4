@@ -27,144 +27,200 @@ namespace GameLibrary
 
         public static Weapon GetCurrentWeapon(Player myPlayer)
         {
-            switch (myPlayer.PlayerClass)
+            bool exit = false;
+
+            do
             {
-                case "Gadgeteer":
-                    CurrentWeapon = GameAttributes.weapons[0];
-                    return CurrentWeapon;
-                case "Speedster":
-                    CurrentWeapon = GameAttributes.weapons[6];
-                    return CurrentWeapon;
-                case "Assassin":
-                    CurrentWeapon = GameAttributes.weapons[1];
-                    return CurrentWeapon;
-                case "Wizard":
-                    CurrentWeapon = GameAttributes.weapons[5];
-                    return CurrentWeapon;
-                case "Ninja":
-                    CurrentWeapon = GameAttributes.weapons[7];
-                    return CurrentWeapon;
-                case "Tank":
-                    CurrentWeapon = GameAttributes.weapons[4];
-                    return CurrentWeapon;
-                case "Banshee":
-                    CurrentWeapon = GameAttributes.weapons[2];
-                    return CurrentWeapon;
-                case "Samurai":
-                    CurrentWeapon = GameAttributes.weapons[3];
-                    return CurrentWeapon;
-                default:
-                    Console.WriteLine("ERROR: Invalid Player Job Class");
-                    return null;
-            }
+                switch (myPlayer.PlayerClass)
+                {
+                    case "Gadgeteer":
+                        CurrentWeapon = GameAttributes.weapons[0];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Speedster":
+                        CurrentWeapon = GameAttributes.weapons[6];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Assassin":
+                        CurrentWeapon = GameAttributes.weapons[1];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Wizard":
+                        CurrentWeapon = GameAttributes.weapons[5];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Ninja":
+                        CurrentWeapon = GameAttributes.weapons[7];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Tank":
+                        CurrentWeapon = GameAttributes.weapons[4];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Banshee":
+                        CurrentWeapon = GameAttributes.weapons[2];
+                        exit = true;
+                        return CurrentWeapon;
+                    case "Samurai":
+                        CurrentWeapon = GameAttributes.weapons[3];
+                        exit = true;
+                        return CurrentWeapon;
+                    default:
+                        Console.WriteLine("ERROR: Invalid Player Job Class");
+                        return CurrentWeapon;
+                }
+            } while (exit == false);
+            
         }
 
         public static int GetPlayerDamage(Player myPlayer)
         {
             int damage;
+            bool exit = false;
 
-            switch (myPlayer.PlayerClass)
+            do
             {
-                case "Gadgeteer":
-                    damage = 50;
-                    return damage;
-                case "Speedster":
-                    damage = 50;
-                    return damage;
-                case "Assassin":
-                    damage = 50;
-                    return damage;
-                case "Wizard":
-                    damage = 50;
-                    return damage;
-                case "Ninja":
-                    damage = 50;
-                    return damage;
-                case "Tank":
-                    damage = 50;
-                    return damage;
-                case "Banshee":
-                    damage = 50;
-                    return damage;
-                case "Samurai":
-                    damage = 50;
-                    return damage;
-                default:
-                    Console.WriteLine("ERROR: Invalid Player Job Class");
-                    return 0;
-            }
+                switch (myPlayer.PlayerClass)
+                {
+                    case "Gadgeteer":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Speedster":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Assassin":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Wizard":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Ninja":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Tank":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Banshee":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    case "Samurai":
+                        damage = 50;
+                        exit = true;
+                        return damage;
+                    default:
+                        Console.WriteLine("ERROR: Invalid Player Job Class");
+                        return 0;
+                }
+            } while (exit == false);
+
+            
         }
 
         public static int GetPlayerAC(Player myPlayer)
         {
             int ac;
+            bool exit = false;
 
-            switch (myPlayer.PlayerClass)
+            do
             {
-                case "Gadgeteer":
-                    ac = 50;
-                    return ac;
-                case "Speedster":
-                    ac = 50;
-                    return ac;
-                case "Assassin":
-                    ac = 50;
-                    return ac;
-                case "Wizard":
-                    ac = 50;
-                    return ac;
-                case "Ninja":
-                    ac = 50;
-                    return ac;
-                case "Tank":
-                    ac = 50;
-                    return ac;
-                case "Banshee":
-                    ac = 50;
-                    return ac;
-                case "Samurai":
-                    ac = 50;
-                    return ac;
-                default:
-                    Console.WriteLine("ERROR: Invalid Player Job Class");
-                    return 0;
-            }
+                switch (myPlayer.PlayerClass)
+                {
+                    case "Gadgeteer":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Speedster":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Assassin":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Wizard":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Ninja":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Tank":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Banshee":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    case "Samurai":
+                        ac = 50;
+                        exit = true;
+                        return ac;
+                    default:
+                        Console.WriteLine("ERROR: Invalid Player Job Class");
+                        return 0;
+                }
+            } while (exit == false);
+
+            
         }
 
         public static int GetPlayerHP(Player myPlayer)
         {
             int hp;
+            bool exit = false;
 
-            switch (myPlayer.PlayerClass)
+            do
             {
-                case "Gadgeteer":
-                    hp = 100;
-                    return hp;
-                case "Speedster":
-                    hp = 100;
-                    return hp;
-                case "Assassin":
-                    hp = 100;
-                    return hp;
-                case "Wizard":
-                    hp = 100;
-                    return hp;
-                case "Ninja":
-                    hp = 100;
-                    return hp;
-                case "Tank":
-                    hp = 100;
-                    return hp;
-                case "Banshee":
-                    hp = 100;
-                    return hp;
-                case "Samurai":
-                    hp = 100;
-                    return hp;
-                default:
-                    Console.WriteLine("ERROR: Invalid Player Job Class");
-                    return 0;
-            }
+                switch (myPlayer.PlayerClass)
+                {
+                    case "Gadgeteer":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Speedster":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Assassin":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Wizard":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Ninja":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Tank":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Banshee":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    case "Samurai":
+                        hp = 100;
+                        exit = true;
+                        return hp;
+                    default:
+                        Console.WriteLine("ERROR: Invalid Player Job Class");
+                        return 0;
+                }
+            } while (exit == false);
+
+           
         }
 
     }
