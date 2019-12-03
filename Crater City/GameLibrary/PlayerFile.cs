@@ -210,44 +210,47 @@ namespace GameLibrary
 
         public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
-            // TODO: Finish GetReturningPlayer
             // Local variables
             string inputString;
             int playerCount = 0;
             int playerChoice = 0;
             myPlayers = GetPlayers(myPlayer);
 
-            // Prompt user to enter an existing Player Name
-            inputString = StandardMessages.PromptReturningPlayerSignIn();
+            //// Prompt user to enter an existing Player Name
+            //inputString = StandardMessages.PromptReturningPlayerSignIn();
 
             foreach (Player player in myPlayers)
             {
-                //Console.ForegroundColor = ConsoleColor.Magenta;
-                //Console.WriteLine($"{player.ID}. {player.Name}");
-                //playerCount++;
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"{player.ID}. {player.Name}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                playerCount++;
 
-                if (inputString.ToLower() == player.Name.ToLower())
-                {
-                    StandardMessages.PromptPlayerPassword();
-                    if (inputString == player.PlayerPassword)
-                    {
-                        myPlayer = player;
-                    }
-                }
+                //if (inputString.ToLower() == player.Name.ToLower())
+                //{
+                //    StandardMessages.PromptPlayerPassword();
+                //    if (inputString == player.PlayerPassword)
+                //    {
+                //        myPlayer = player;
+                //    }
+                //}
             }
 
 
-            //do
-            //{
-            //    Console.Write("Enter a number to choose a character profile: ");
-            //    playerChoice = int.Parse(Console.ReadLine());
-            //} while (playerChoice > playerCount || playerChoice <= 0);
+            do
+            {
+                Console.Write("Enter a number to choose a character profile: ");
+                playerChoice = int.Parse(Console.ReadLine());
+            } while (playerChoice > playerCount || playerChoice <= 0);
 
             //Console.Write("Enter a number to choose a character profile: ");
             //playerChoice = int.Parse(Console.ReadLine());
 
-            //myPlayer = myPlayers[(playerChoice - 1)];
-
+            myPlayer.ID = myPlayers[playerChoice-1].ID;
+            myPlayer.Name = myPlayers[playerChoice - 1].Name;
+            myPlayer.PlayerPassword = myPlayers[playerChoice - 1].PlayerPassword;
+            myPlayer.PlayerClass = myPlayers[playerChoice - 1].PlayerClass;
+            myPlayer.PlayerRace = myPlayers[playerChoice - 1].PlayerRace;
 
             // TODO finish GetReturningPlayer method
 

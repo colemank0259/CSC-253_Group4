@@ -71,25 +71,25 @@ namespace ConsoleUI
                     // Consume the next line for appearance
                     Console.WriteLine("");
 
-                    // Display room names for testing (remove later)
-                    Console.WriteLine("Rooms:");
-                    foreach(Room room in GameAttributes.rooms)
-                    {
-                        Console.WriteLine($"{room.Name}");
-                    }
+                    //// Display room names for testing (remove later)
+                    //Console.WriteLine("Rooms:");
+                    //foreach(Room room in GameAttributes.rooms)
+                    //{
+                    //    Console.WriteLine($"{room.Name}");
+                    //}
 
-                    // Consume the next line for appearance
-                    Console.WriteLine("");
+                    //// Consume the next line for appearance
+                    //Console.WriteLine("");
 
-                    // Display weapon names for testing (remove later)
-                    Console.WriteLine("Weapons:");
-                    foreach (Weapon weapon in GameAttributes.weapons)
-                    {
-                        Console.WriteLine($"{weapon.Type} - {weapon.Name}");
-                    }
+                    //// Display weapon names for testing (remove later)
+                    //Console.WriteLine("Weapons:");
+                    //foreach (Weapon weapon in GameAttributes.weapons)
+                    //{
+                    //    Console.WriteLine($"{weapon.Type} - {weapon.Name}");
+                    //}
 
-                    // Consume the next line for appearance
-                    Console.WriteLine("");
+                    //// Consume the next line for appearance
+                    //Console.WriteLine("");
 
                     // Get player movement
                     Console.WriteLine("Enter 'north', 'south', 'east', or 'west' to move between locations.");
