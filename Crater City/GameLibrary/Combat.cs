@@ -41,7 +41,7 @@ namespace GameLibrary
         public static LivingBeing PerformAttack(LivingBeing attacker, LivingBeing enemy)
         {
             // Local variable
-            int diceRoll = RandomNumber.NumberBetween(1, 100);
+            int diceRoll = RandomNumber.NumberBetween(1, (enemy.AC + 100));
 
             if (diceRoll > enemy.AC)
             {
