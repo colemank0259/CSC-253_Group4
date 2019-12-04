@@ -1,2 +1,8 @@
-1,Health
-2,Ability Boost
+1,Low Damage Boost,50,0,0,0
+2,Low AC Boost,0,50,0,0
+3,Low Health Boost,0,0,50,0
+4,Low Total Boost,50,50,50,0
+5,High Damage Boost,100,0,0,50
+6,High AC Boost,0,100,0,50
+7,High Health Boost,0,0,100,50
+8,High Total Boost,100,100,100,100

@@ -19,7 +19,6 @@ namespace GameLibrary
             int hp = 0;
             int xp = 0;
 
-            // TODO: Update this class and the Mobs.csv with HP stat added
 
             try
             {

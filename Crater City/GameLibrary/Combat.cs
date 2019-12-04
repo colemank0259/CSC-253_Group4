@@ -10,6 +10,13 @@ namespace GameLibrary
     {
         public static List<Mob> CurrentMobs = GameAttributes.mobs;
 
+        public static Potion GetPotion(Potion potion, List<Potion> potions)
+        {
+            potion = potions[RandomNumber.NumberBetween(0, 7)];
+
+            return potion;
+        }
+
         public static Mob GetCurrentMob(Mob mob, List<Mob> mobs)
         {
             mob = mobs[RandomNumber.NumberBetween(0, 4)];

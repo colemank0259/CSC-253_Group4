@@ -19,6 +19,7 @@ namespace ConsoleUI
             Player myPlayer = new Player(0, null, 0, 0, 0, 0,  null, null, null);
             List<Player> myPlayers = new List<Player>();
             Mob currentMob = new Mob(0, null, 0, 0, 0, 0);
+            Potion currentPotion = new Potion(0, null, 0, 0, 0, 0);
             bool exit = false;
 
 
@@ -112,9 +113,10 @@ namespace ConsoleUI
             } while (exit == false);
         }
 
-        static void GetPlayerMovement(Player myPlayer, Mob currentMob)
+        static void GetPlayerMovement(Player myPlayer, Mob currentMob, Potion currentPotion)
         {
             currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+            currentPotion = Combat.GetPotion(currentPotion, GameAttributes.potions);
             bool exit = false;
             bool fight = false;
 
@@ -137,80 +139,137 @@ namespace ConsoleUI
                 {
                     case 1:
                         fight = true;
+                        // Prevent dead Mobs from being reused; remove when you find a better way
+                        while (currentMob.HP <= 0)
+                        {
+                            currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+                        }
+
+                        Console.WriteLine($"You must fight a {currentMob.Name}!");
+                        Console.WriteLine($"{currentMob.Name}'s HP is {currentMob.HP}.");
+
+                        do
+                        {
+                            int fightCoinToss = RandomNumber.NumberBetween(1, 2);
+                            switch (fightCoinToss)
+                            {
+                                case 1:
+                                    Combat.PerformPlayerAttack(myPlayer, currentMob);
+                                    break;
+                                case 2:
+                                    Combat.PerformMobAttack(myPlayer, currentMob);
+                                    break;
+                            }
+
+                            // Toss the coin again to alternate chances of attacking
+                            fightCoinToss = RandomNumber.NumberBetween(1, 2);
+
+                            if (myPlayer.HP <= 0)
+                            {
+                                // Add color for dramatic effect
+                                Console.ForegroundColor = ConsoleColor.Red;
+
+                                Console.WriteLine("You are defeated. GAME OVER");
+                                fight = false;
+                                exit = true;
+
+                                // Return color to normal
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+
+                            if (currentMob.HP <= 0)
+                            {
+                                // Add color for dramatic effect
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                Console.WriteLine($"{currentMob.Name} is defeated. YOU WIN!");
+                                myPlayer.XP += currentMob.XP;
+                                Console.WriteLine($"{myPlayer.Name}'s XP: {myPlayer.XP}");
+                                fight = false;
+                                currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+
+                                // Return color to normal
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+
+                        } while (fight == true);
+                        // TODO: Move the combat system code to a method
                         break;
                     case 2:
                         fight = false;
+                        Console.WriteLine("There are no enemies here.");
+                        // TODO: Create method for getting and using Potions
                         break;
                 }
 
-                // Toss the coin again to alternate chances of attacking
+                // Toss the coin again to alternate chances of a fight
                 mobCoinToss = RandomNumber.NumberBetween(1, 2);
 
 
-                if (Player.CurrentRoom == Mob.CurrentRoom)
-                {
+                //if (Player.CurrentRoom == Mob.CurrentRoom)
+                //{
                     
 
-                    // Prevent dead Mobs from being reused; remove when you find a better way
-                    while(currentMob.HP <= 0)
-                    {
-                        currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
-                    }
+                //    // Prevent dead Mobs from being reused; remove when you find a better way
+                //    while(currentMob.HP <= 0)
+                //    {
+                //        currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+                //    }
 
-                    Console.WriteLine($"You must fight a {currentMob.Name}!");
-                    Console.WriteLine($"{currentMob.Name}'s HP is {currentMob.HP}.");
+                //    Console.WriteLine($"You must fight a {currentMob.Name}!");
+                //    Console.WriteLine($"{currentMob.Name}'s HP is {currentMob.HP}.");
 
-                    do
-                    {
-                        int fightCoinToss = RandomNumber.NumberBetween(1, 2);
-                        switch (fightCoinToss)
-                        {
-                            case 1:
-                                Combat.PerformPlayerAttack(myPlayer, currentMob);
-                                break;
-                            case 2:
-                                Combat.PerformMobAttack(myPlayer, currentMob);
-                                break;
-                        }
+                //    do
+                //    {
+                //        int fightCoinToss = RandomNumber.NumberBetween(1, 2);
+                //        switch (fightCoinToss)
+                //        {
+                //            case 1:
+                //                Combat.PerformPlayerAttack(myPlayer, currentMob);
+                //                break;
+                //            case 2:
+                //                Combat.PerformMobAttack(myPlayer, currentMob);
+                //                break;
+                //        }
 
-                        // Toss the coin again to alternate chances of attacking
-                        fightCoinToss = RandomNumber.NumberBetween(1, 2);
+                //        // Toss the coin again to alternate chances of attacking
+                //        fightCoinToss = RandomNumber.NumberBetween(1, 2);
 
-                        if (myPlayer.HP <= 0)
-                        {
-                            // Add color for dramatic effect
-                            Console.ForegroundColor = ConsoleColor.Red;
+                //        if (myPlayer.HP <= 0)
+                //        {
+                //            // Add color for dramatic effect
+                //            Console.ForegroundColor = ConsoleColor.Red;
 
-                            Console.WriteLine("You are defeated. GAME OVER");
-                            fight = false;
-                            exit = true;
+                //            Console.WriteLine("You are defeated. GAME OVER");
+                //            fight = false;
+                //            exit = true;
 
-                            // Return color to normal
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                //            // Return color to normal
+                //            Console.ForegroundColor = ConsoleColor.White;
+                //        }
 
-                        if (currentMob.HP <= 0)
-                        {
-                            // Add color for dramatic effect
-                            Console.ForegroundColor = ConsoleColor.Green;
+                //        if (currentMob.HP <= 0)
+                //        {
+                //            // Add color for dramatic effect
+                //            Console.ForegroundColor = ConsoleColor.Green;
 
-                            Console.WriteLine($"{currentMob.Name} is defeated. YOU WIN!");
-                            myPlayer.XP += currentMob.XP;
-                            Console.WriteLine($"{myPlayer.Name}'s XP: {myPlayer.XP}");
-                            fight = false;
-                            currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
+                //            Console.WriteLine($"{currentMob.Name} is defeated. YOU WIN!");
+                //            myPlayer.XP += currentMob.XP;
+                //            Console.WriteLine($"{myPlayer.Name}'s XP: {myPlayer.XP}");
+                //            fight = false;
+                //            currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
 
-                            // Return color to normal
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                //            // Return color to normal
+                //            Console.ForegroundColor = ConsoleColor.White;
+                //        }
 
-                    } while (fight == true);
+                //    } while (fight == true);
 
-                }
-                else
-                {
-                    Console.WriteLine("There are no enemies here.");
-                }
+                //}
+                //else
+                //{
+                //    Console.WriteLine("There are no enemies here.");
+                //}
 
             } while (exit == false);
 
