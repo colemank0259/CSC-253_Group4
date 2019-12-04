@@ -17,6 +17,7 @@ namespace GameLibrary
         {
             ID = id;
             Name = name;
+            CurrentRoom = GameAttributes.rooms[RandomNumber.NumberBetween(0, 6)];
         }
     }
 }

@@ -12,9 +12,9 @@ namespace GameLibrary
         {
             if (input.ToLower() == "north")
             {
-                if (LivingBeing.CurrentRoom.North != -1)
+                if (GameObject.CurrentRoom.North != -1)
                 {
-                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.North];
+                    GameObject.CurrentRoom = GameAttributes.rooms[GameObject.CurrentRoom.North];
                 }
                 else
                 {
@@ -23,9 +23,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "south")
             {
-                if (LivingBeing.CurrentRoom.South != -1)
+                if (GameObject.CurrentRoom.South != -1)
                 {
-                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.South];
+                    GameObject.CurrentRoom = GameAttributes.rooms[GameObject.CurrentRoom.South];
                 }
                 else
                 {
@@ -34,9 +34,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "east")
             {
-                if (LivingBeing.CurrentRoom.East != -1)
+                if (GameObject.CurrentRoom.East != -1)
                 {
-                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.East];
+                    GameObject.CurrentRoom = GameAttributes.rooms[GameObject.CurrentRoom.East];
                 }
                 else
                 {
@@ -45,9 +45,9 @@ namespace GameLibrary
             }
             else if (input.ToLower() == "west")
             {
-                if (LivingBeing.CurrentRoom.West != -1)
+                if (GameObject.CurrentRoom.West != -1)
                 {
-                    LivingBeing.CurrentRoom = GameAttributes.rooms[LivingBeing.CurrentRoom.West];
+                    GameObject.CurrentRoom = GameAttributes.rooms[GameObject.CurrentRoom.West];
                 }
                 else
                 {

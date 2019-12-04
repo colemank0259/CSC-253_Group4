@@ -93,6 +93,10 @@ namespace ConsoleUI
 
                     // Get player movement
                     Console.WriteLine("Enter 'north', 'south', 'east', or 'west' to move between locations.");
+
+                    // Consume the next line for appearance
+                    Console.WriteLine("");
+
                     GetPlayerMovement(myPlayer, currentMob);
 
                 }
@@ -112,18 +116,40 @@ namespace ConsoleUI
         {
             currentMob = Combat.GetCurrentMob(currentMob, Combat.CurrentMobs);
             bool exit = false;
+            bool fight = false;
 
             do
             {
-                Console.WriteLine(Player.CurrentRoom.Name);
+                // Display the player's current location
+                Console.WriteLine($"Current Location: {Player.CurrentRoom.Name}");
+
+                // Consume the next line for appearance
+                Console.WriteLine("");
+
+                // Prompt the player's movement
                 Console.Write("Which direction do you want to move? ");
                 string userInput = Console.ReadLine();
                 PlayerMovement.GetMovement(userInput);
                 Console.ReadLine();
 
+                int mobCoinToss = RandomNumber.NumberBetween(1, 2);
+                switch (mobCoinToss)
+                {
+                    case 1:
+                        fight = true;
+                        break;
+                    case 2:
+                        fight = false;
+                        break;
+                }
+
+                // Toss the coin again to alternate chances of attacking
+                mobCoinToss = RandomNumber.NumberBetween(1, 2);
+
+
                 if (Player.CurrentRoom == Mob.CurrentRoom)
                 {
-                    bool fight = true;
+                    
 
                     // Prevent dead Mobs from being reused; remove when you find a better way
                     while(currentMob.HP <= 0)
@@ -136,8 +162,8 @@ namespace ConsoleUI
 
                     do
                     {
-                        int coinToss = RandomNumber.NumberBetween(1, 2);
-                        switch (coinToss)
+                        int fightCoinToss = RandomNumber.NumberBetween(1, 2);
+                        switch (fightCoinToss)
                         {
                             case 1:
                                 Combat.PerformPlayerAttack(myPlayer, currentMob);
@@ -148,7 +174,7 @@ namespace ConsoleUI
                         }
 
                         // Toss the coin again to alternate chances of attacking
-                        coinToss = RandomNumber.NumberBetween(1, 2);
+                        fightCoinToss = RandomNumber.NumberBetween(1, 2);
 
                         if (myPlayer.HP <= 0)
                         {
@@ -181,10 +207,14 @@ namespace ConsoleUI
                     } while (fight == true);
 
                 }
+                else
+                {
+                    Console.WriteLine("There are no enemies here.");
+                }
 
             } while (exit == false);
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

@@ -11,6 +11,8 @@ namespace GameLibrary
         public int ID { get; set; }
         public string Name { get; set; }
 
+        public static Room CurrentRoom { get; set; }
+
         public GameObject(int id, string name)
         {
             ID = id;
