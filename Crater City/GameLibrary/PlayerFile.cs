@@ -189,13 +189,6 @@ namespace GameLibrary
                     string playerClass = splitter[3];
                     string race = splitter[4];
 
-                    //newPlayer.ID = int.Parse(splitter[0]);
-                    //newPlayer.Name = splitter[1];
-                    //newPlayer.PlayerPassword = splitter[2];
-                    //newPlayer.PlayerClass = splitter[3];
-                    //newPlayer.PlayerRace = splitter[4];
-
-
                     myPlayers.Add(new Player(id, name, 0, 0, 0, 0, password, playerClass, race));
                 }
 
@@ -211,48 +204,52 @@ namespace GameLibrary
         public static Player GetReturningPlayer(Player myPlayer, List<Player> myPlayers)
         {
             // Local variables
-            string inputString;
+            string inputString = null;
             int playerCount = 0;
             int playerChoice = 0;
             myPlayers = GetPlayers(myPlayer);
-
-            //// Prompt user to enter an existing Player Name
-            //inputString = StandardMessages.PromptReturningPlayerSignIn();
-
-            foreach (Player player in myPlayers)
-            {
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{player.ID}. {player.Name}");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                playerCount++;
-
-                //if (inputString.ToLower() == player.Name.ToLower())
-                //{
-                //    StandardMessages.PromptPlayerPassword();
-                //    if (inputString == player.PlayerPassword)
-                //    {
-                //        myPlayer = player;
-                //    }
-                //}
-            }
-
+            bool playerVerified = false;
+            
 
             do
             {
-                Console.Write("Enter a number to choose a character profile: ");
-                playerChoice = int.Parse(Console.ReadLine());
-            } while (playerChoice > playerCount || playerChoice <= 0);
+                foreach (Player player in myPlayers)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine($"{player.ID}. {player.Name} - {player.PlayerRace} {player.PlayerClass}");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    playerCount++;
+                }
 
-            //Console.Write("Enter a number to choose a character profile: ");
-            //playerChoice = int.Parse(Console.ReadLine());
+                do
+                {
+                    Console.Write("Enter a number to choose a character profile: ");
+                    playerChoice = int.Parse(Console.ReadLine());
+                } while (playerChoice > playerCount || playerChoice <= 0);
 
-            myPlayer.ID = myPlayers[playerChoice-1].ID;
-            myPlayer.Name = myPlayers[playerChoice - 1].Name;
-            myPlayer.PlayerPassword = myPlayers[playerChoice - 1].PlayerPassword;
-            myPlayer.PlayerClass = myPlayers[playerChoice - 1].PlayerClass;
-            myPlayer.PlayerRace = myPlayers[playerChoice - 1].PlayerRace;
+                myPlayer.ID = myPlayers[playerChoice - 1].ID;
+                myPlayer.Name = myPlayers[playerChoice - 1].Name;
+                myPlayer.PlayerPassword = myPlayers[playerChoice - 1].PlayerPassword;
+                myPlayer.PlayerClass = myPlayers[playerChoice - 1].PlayerClass;
+                myPlayer.PlayerRace = myPlayers[playerChoice - 1].PlayerRace;
 
-            // TODO finish GetReturningPlayer method
+                int passwordAttempts = 0;
+
+                while (inputString != myPlayer.PlayerPassword && passwordAttempts < 3)
+                {
+                    inputString = StandardMessages.PromptPlayerPassword();
+
+                    if (inputString == myPlayer.PlayerPassword)
+                    {
+                        playerVerified = true;
+                    }
+                    else
+                    {
+                        passwordAttempts++;
+                    }
+                }
+
+            } while (playerVerified == false);
 
             return myPlayer;
         }

@@ -254,6 +254,11 @@ namespace ConsoleUI
             player.HP += potion.HP;
             player.XP += potion.XP;
 
+            if (player.AC > 1000)
+            {
+                player.AC = 1000;
+            }
+
             DisplayPlayerStats(player);
 
             return player;
