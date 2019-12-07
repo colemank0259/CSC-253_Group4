@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameLibrary;
 /**
-* 09/15/19
+* 12/07/19
 * CSC 253
 * Group 4
 * This program is a dungeon crawl game.
@@ -174,6 +174,11 @@ namespace ConsoleUI
 
                                 if (myPlayer.HP <= 0)
                                 {
+                                    if (myPlayer.HP < 0)
+                                    {
+                                        myPlayer.HP = 0;
+                                    }
+
                                     // Add color for dramatic effect
                                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -187,6 +192,11 @@ namespace ConsoleUI
 
                                 if (currentMob.HP <= 0)
                                 {
+                                    if (currentMob.HP < 0)
+                                    {
+                                        currentMob.HP = 0;
+                                    }
+
                                     // Add color for dramatic effect
                                     Console.ForegroundColor = ConsoleColor.Green;
 
@@ -216,7 +226,6 @@ namespace ConsoleUI
 
                             } while (fight == true);
                         }
-                        // TODO: Move the combat system code to a method
                         break;
                     case 2:
                         fight = false;
@@ -275,6 +284,7 @@ namespace ConsoleUI
             Console.WriteLine($"Player Damage: {myPlayer.Damage}");
             Console.WriteLine($"Player AC: {myPlayer.AC}");
             Console.WriteLine($"Player HP: {myPlayer.HP}");
+            Console.WriteLine($"Player XP: {myPlayer.XP}");
             Console.WriteLine($"Player Weapon: {Player.CurrentWeapon.Name}");
             Console.ForegroundColor = ConsoleColor.White;
         }

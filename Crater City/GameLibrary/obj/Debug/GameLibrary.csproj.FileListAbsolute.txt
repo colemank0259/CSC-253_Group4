@@ -16,3 +16,4 @@ D:\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.pdb
 D:\CSC-253_Group4\Crater City\GameLibrary\bin\Debug\GameLibrary.dll
 D:\CSC-253_Group4\Crater City\GameLibrary\bin\Debug\GameLibrary.pdb
 C:\Users\colemank0259\Documents\GitHub\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.csproj.CoreCompileInputs.cache
+D:\CSC-253_Group4\Crater City\GameLibrary\obj\Debug\GameLibrary.csprojAssemblyReference.cache
